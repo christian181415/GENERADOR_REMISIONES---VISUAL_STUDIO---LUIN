@@ -2673,7 +2673,7 @@
     <value>0, 0</value>
   </data>
   <data name="PictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 50</value>
+    <value>152, 63</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="PictureBox1.TabIndex" type="System.Int32, mscorlib">
@@ -2815,7 +2815,7 @@
     <value>152, 0</value>
   </data>
   <data name="Panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>637, 32</value>
+    <value>637, 29</value>
   </data>
   <data name="Panel1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2839,10 +2839,10 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="Panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>152, 32</value>
+    <value>152, 29</value>
   </data>
   <data name="Panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>637, 375</value>
+    <value>637, 378</value>
   </data>
   <data name="Panel2.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
