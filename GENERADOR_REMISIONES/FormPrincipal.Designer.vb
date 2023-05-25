@@ -24,16 +24,20 @@ Partial Class FormPrincipal
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormPrincipal))
         Me.PTaskBar = New System.Windows.Forms.Panel()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.BtnOpciones = New System.Windows.Forms.Button()
         Me.PBoxLogo = New System.Windows.Forms.PictureBox()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.BtnHistorial = New System.Windows.Forms.Button()
+        Me.BtnRemisiones = New System.Windows.Forms.Button()
         Me.PMenu = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.PBotones = New System.Windows.Forms.Panel()
         Me.PBoxMaximize = New System.Windows.Forms.PictureBox()
         Me.PBoxMinimize = New System.Windows.Forms.PictureBox()
         Me.PBoxExit = New System.Windows.Forms.PictureBox()
         Me.PInfo = New System.Windows.Forms.Panel()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.PTaskBar.SuspendLayout()
         CType(Me.PBoxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PMenu.SuspendLayout()
@@ -46,51 +50,65 @@ Partial Class FormPrincipal
         'PTaskBar
         '
         Me.PTaskBar.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.PTaskBar.Controls.Add(Me.Button3)
+        Me.PTaskBar.Controls.Add(Me.Panel3)
+        Me.PTaskBar.Controls.Add(Me.Panel2)
+        Me.PTaskBar.Controls.Add(Me.Panel1)
+        Me.PTaskBar.Controls.Add(Me.BtnOpciones)
         Me.PTaskBar.Controls.Add(Me.PBoxLogo)
-        Me.PTaskBar.Controls.Add(Me.Button2)
-        Me.PTaskBar.Controls.Add(Me.Button1)
+        Me.PTaskBar.Controls.Add(Me.BtnHistorial)
+        Me.PTaskBar.Controls.Add(Me.BtnRemisiones)
         resources.ApplyResources(Me.PTaskBar, "PTaskBar")
         Me.PTaskBar.ForeColor = System.Drawing.Color.White
         Me.PTaskBar.Name = "PTaskBar"
         '
-        'Button3
+        'BtnOpciones
         '
-        Me.Button3.FlatAppearance.BorderSize = 0
-        Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red
-        resources.ApplyResources(Me.Button3, "Button3")
-        Me.Button3.Name = "Button3"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.BtnOpciones.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnOpciones.FlatAppearance.BorderSize = 0
+        Me.BtnOpciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red
+        resources.ApplyResources(Me.BtnOpciones, "BtnOpciones")
+        Me.BtnOpciones.Name = "BtnOpciones"
+        Me.BtnOpciones.UseVisualStyleBackColor = True
         '
         'PBoxLogo
         '
         resources.ApplyResources(Me.PBoxLogo, "PBoxLogo")
+        Me.PBoxLogo.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PBoxLogo.Name = "PBoxLogo"
         Me.PBoxLogo.TabStop = False
         '
-        'Button2
+        'BtnHistorial
         '
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red
-        resources.ApplyResources(Me.Button2, "Button2")
-        Me.Button2.Name = "Button2"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.BtnHistorial.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnHistorial.FlatAppearance.BorderSize = 0
+        Me.BtnHistorial.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red
+        resources.ApplyResources(Me.BtnHistorial, "BtnHistorial")
+        Me.BtnHistorial.Name = "BtnHistorial"
+        Me.BtnHistorial.UseVisualStyleBackColor = True
         '
-        'Button1
+        'BtnRemisiones
         '
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red
-        resources.ApplyResources(Me.Button1, "Button1")
-        Me.Button1.Name = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.BtnRemisiones.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnRemisiones.FlatAppearance.BorderSize = 0
+        Me.BtnRemisiones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red
+        resources.ApplyResources(Me.BtnRemisiones, "BtnRemisiones")
+        Me.BtnRemisiones.Name = "BtnRemisiones"
+        Me.BtnRemisiones.UseVisualStyleBackColor = True
         '
         'PMenu
         '
         Me.PMenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.PMenu.Controls.Add(Me.Label1)
         Me.PMenu.Controls.Add(Me.PBotones)
         resources.ApplyResources(Me.PMenu, "PMenu")
         Me.PMenu.ForeColor = System.Drawing.Color.White
         Me.PMenu.Name = "PMenu"
+        '
+        'Label1
+        '
+        resources.ApplyResources(Me.Label1, "Label1")
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Name = "Label1"
         '
         'PBotones
         '
@@ -103,6 +121,7 @@ Partial Class FormPrincipal
         'PBoxMaximize
         '
         resources.ApplyResources(Me.PBoxMaximize, "PBoxMaximize")
+        Me.PBoxMaximize.Cursor = System.Windows.Forms.Cursors.Default
         Me.PBoxMaximize.Name = "PBoxMaximize"
         Me.PBoxMaximize.TabStop = False
         '
@@ -115,6 +134,7 @@ Partial Class FormPrincipal
         'PBoxExit
         '
         resources.ApplyResources(Me.PBoxExit, "PBoxExit")
+        Me.PBoxExit.Cursor = System.Windows.Forms.Cursors.Default
         Me.PBoxExit.Name = "PBoxExit"
         Me.PBoxExit.TabStop = False
         '
@@ -125,6 +145,24 @@ Partial Class FormPrincipal
         Me.PInfo.ForeColor = System.Drawing.Color.White
         Me.PInfo.Name = "PInfo"
         '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.White
+        resources.ApplyResources(Me.Panel1, "Panel1")
+        Me.Panel1.Name = "Panel1"
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.White
+        resources.ApplyResources(Me.Panel2, "Panel2")
+        Me.Panel2.Name = "Panel2"
+        '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.White
+        resources.ApplyResources(Me.Panel3, "Panel3")
+        Me.Panel3.Name = "Panel3"
+        '
         'FormPrincipal
         '
         resources.ApplyResources(Me, "$this")
@@ -133,10 +171,12 @@ Partial Class FormPrincipal
         Me.Controls.Add(Me.PMenu)
         Me.Controls.Add(Me.PTaskBar)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.IsMdiContainer = True
         Me.Name = "FormPrincipal"
         Me.PTaskBar.ResumeLayout(False)
         CType(Me.PBoxLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PMenu.ResumeLayout(False)
+        Me.PMenu.PerformLayout()
         Me.PBotones.ResumeLayout(False)
         CType(Me.PBoxMaximize, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PBoxMinimize, System.ComponentModel.ISupportInitialize).EndInit()
@@ -153,7 +193,11 @@ Partial Class FormPrincipal
     Friend WithEvents PBoxMaximize As PictureBox
     Friend WithEvents PBoxMinimize As PictureBox
     Friend WithEvents PBoxExit As PictureBox
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents BtnOpciones As Button
+    Friend WithEvents BtnHistorial As Button
+    Friend WithEvents BtnRemisiones As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Panel1 As Panel
 End Class

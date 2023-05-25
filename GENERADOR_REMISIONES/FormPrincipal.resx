@@ -117,12 +117,76 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Panel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 301</value>
+  </data>
+  <data name="Panel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>5, 110</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Panel3.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;Panel3.Name" xml:space="preserve">
+    <value>Panel3</value>
+  </data>
+  <data name="&gt;&gt;Panel3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Panel3.Parent" xml:space="preserve">
+    <value>PTaskBar</value>
+  </data>
+  <data name="&gt;&gt;Panel3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="Panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 185</value>
+  </data>
+  <data name="Panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>5, 110</value>
+  </data>
+  <data name="Panel2.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;Panel2.Name" xml:space="preserve">
+    <value>Panel2</value>
+  </data>
+  <data name="&gt;&gt;Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Panel2.Parent" xml:space="preserve">
+    <value>PTaskBar</value>
+  </data>
+  <data name="&gt;&gt;Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 69</value>
+  </data>
+  <data name="Panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>5, 110</value>
+  </data>
+  <data name="Panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;Panel1.Name" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="&gt;&gt;Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Panel1.Parent" xml:space="preserve">
+    <value>PTaskBar</value>
+  </data>
+  <data name="&gt;&gt;Panel1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Button3.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="BtnOpciones.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="Button3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BtnOpciones.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
         MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfnBRgSFAyiYp36AAABo0lEQVRIS72WsUrDUBSGqygtfQXB
@@ -135,36 +199,35 @@
         TujSwHoXbVraNrDOY3Rr9gMXjqF9+2a0nQ4M3Eb/b0tTy7+QyXwDMcmNW0u72YcAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="Button3.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="BtnOpciones.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="Button3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="BtnOpciones.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="Button3.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="BtnOpciones.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 301</value>
   </data>
-  <data name="Button3.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="BtnOpciones.Size" type="System.Drawing.Size, System.Drawing">
     <value>137, 110</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Button3.TabIndex" type="System.Int32, mscorlib">
+  <data name="BtnOpciones.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="Button3.Text" xml:space="preserve">
+  <data name="BtnOpciones.Text" xml:space="preserve">
     <value>           OPCIONES</value>
   </data>
-  <data name="&gt;&gt;Button3.Name" xml:space="preserve">
-    <value>Button3</value>
+  <data name="&gt;&gt;BtnOpciones.Name" xml:space="preserve">
+    <value>BtnOpciones</value>
   </data>
-  <data name="&gt;&gt;Button3.Type" xml:space="preserve">
+  <data name="&gt;&gt;BtnOpciones.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Button3.Parent" xml:space="preserve">
+  <data name="&gt;&gt;BtnOpciones.Parent" xml:space="preserve">
     <value>PTaskBar</value>
   </data>
-  <data name="&gt;&gt;Button3.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;BtnOpciones.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="PBoxLogo.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2732,12 +2795,12 @@
     <value>PTaskBar</value>
   </data>
   <data name="&gt;&gt;PBoxLogo.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>4</value>
   </data>
-  <data name="Button2.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="BtnHistorial.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="Button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BtnHistorial.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
         MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfnBRgSEzWyJoM1AAABv0lEQVRIS52UPShGURjHkTIwMJlM
@@ -2751,40 +2814,40 @@
         jMux4zgNP0jw+eBLjEA9AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="Button2.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="BtnHistorial.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="Button2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="BtnHistorial.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="Button2.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="BtnHistorial.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 185</value>
   </data>
-  <data name="Button2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="BtnHistorial.Size" type="System.Drawing.Size, System.Drawing">
     <value>137, 110</value>
   </data>
-  <data name="Button2.TabIndex" type="System.Int32, mscorlib">
+  <data name="BtnHistorial.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="Button2.Text" xml:space="preserve">
+  <data name="BtnHistorial.Text" xml:space="preserve">
     <value>           HISTORIAL</value>
   </data>
-  <data name="&gt;&gt;Button2.Name" xml:space="preserve">
-    <value>Button2</value>
+  <data name="&gt;&gt;BtnHistorial.Name" xml:space="preserve">
+    <value>BtnHistorial</value>
   </data>
-  <data name="&gt;&gt;Button2.Type" xml:space="preserve">
+  <data name="&gt;&gt;BtnHistorial.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Button2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;BtnHistorial.Parent" xml:space="preserve">
     <value>PTaskBar</value>
   </data>
-  <data name="&gt;&gt;Button2.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;BtnHistorial.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
-  <data name="Button1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="BtnRemisiones.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="Button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BtnRemisiones.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
         MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfnBRgSEQTRzuGNAAAA8klEQVRIS+2WMRKCMBBFOYheQi9g
@@ -2795,35 +2858,35 @@
         YII=
 </value>
   </data>
-  <data name="Button1.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="BtnRemisiones.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="Button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="BtnRemisiones.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="Button1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="BtnRemisiones.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 69</value>
   </data>
-  <data name="Button1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="BtnRemisiones.Size" type="System.Drawing.Size, System.Drawing">
     <value>137, 110</value>
   </data>
-  <data name="Button1.TabIndex" type="System.Int32, mscorlib">
+  <data name="BtnRemisiones.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="Button1.Text" xml:space="preserve">
+  <data name="BtnRemisiones.Text" xml:space="preserve">
     <value>           REMISIONES</value>
   </data>
-  <data name="&gt;&gt;Button1.Name" xml:space="preserve">
-    <value>Button1</value>
+  <data name="&gt;&gt;BtnRemisiones.Name" xml:space="preserve">
+    <value>BtnRemisiones</value>
   </data>
-  <data name="&gt;&gt;Button1.Type" xml:space="preserve">
+  <data name="&gt;&gt;BtnRemisiones.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Button1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;BtnRemisiones.Parent" xml:space="preserve">
     <value>PTaskBar</value>
   </data>
-  <data name="&gt;&gt;Button1.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;BtnRemisiones.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="PTaskBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -2852,10 +2915,40 @@
   <data name="&gt;&gt;PTaskBar.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
+  </data>
+  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 6</value>
+  </data>
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 16</value>
+  </data>
+  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="Label1.Text" xml:space="preserve">
+    <value>REMISIONES</value>
+  </data>
+  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
+    <value>Label1</value>
+  </data>
+  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
+    <value>PMenu</value>
+  </data>
+  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="PBoxMaximize.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAV4AAAFYCAYAAAAbcpQHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAJodJREFUeF7tnQlUVtehtps5aZqkSZu0Sefe3L+tadK0rDZT/4bc5jeh8eaa1i8R
+        vAAADrwBlbxySQAAJodJREFUeF7tnQlUVtehtps5aZqkSZu0Sefe3L+tadK0rDZT/4bc5jeh8eaa1i8R
         EUVjUBQQxBEVmQeHeJ0RUVAwgIIMMjmAqDiA8whqFAdi1NhMTWKc/2/rdlnjhm/gG87wPGs9q2s1eIY9
         vBz23mefbwEAAAAAAAAAABiIcePG3RocHHxHz54977X+7wMhISEPRkVFPTJ69OifTJo06XezZs3yXbhw
         YdeioqKAutraIZs3bkzcs2dPxpEjR5YcPXq0rKWlZdGuHTumrFuzZsSK6uq+ZWVl/8jOzv7LtGnTnkxJ
@@ -3052,7 +3145,7 @@
   <data name="PBoxMinimize.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAVwAAAFYCAYAAAAfh0Q6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAHulJREFUeF7t3XlYVPe9+PGsTdI26fbktvfXJLc36b1NXBFcEEHHPbgn11FAcUEE
+        vAAADrwBlbxySQAAHulJREFUeF7t3XlYVPe9+PGsTdI26fbktvfXJLc36b1NXBFcEEHHPbgn11FAcUEE
         UVaXoKKywwwgCCKbiKwigoKAoqJ1xSBq1GgMiTZNa7bmpjericbtN6d+edokXxFwYM7Meb+f5/VfMsxy
         vp+cnDlzzn1ERERERERERERWlLFXr6cSn+850Ni9+9T4nj1DDXZ2y409e2cYe9tlG/vY5yY49K1PtLd/
         I6lfv7dWOzpeXG3v8Hly335fJnTrfuv7kh36fr66j/2nyQMGXEh0cHgj0aFffYKdfZ2xV+9qY49e60zS
@@ -3217,7 +3310,7 @@
   <data name="PBoxExit.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAVsAAAFXCAYAAAAMDe2WAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAPq9JREFUeF7tnQlYFEmav2d2Zv4zuzuz18zO7DG7OzN9TCuKAqK2ouLZ0tqejS1e
+        vAAADrwBlbxySQAAPq9JREFUeF7tnQlYFEmav2d2Zv4zuzuz18zO7DG7OzN9TCuKAqK2ouLZ0tqejS1e
         TauN99WtrbaKB8p938otICgiggeIIorc4IGA4onIoaB4AN5A/CvKr8YrwCoqqyoz8nuf5332WabNysiM
         +FVUZGTETxAEQRAEQRAEQRAEQRBE5GzcuPHvZs+e/Zs5c+b82/z583+/evXq/12/fv1HHh4e/bdv3z4h
         NjZ2XlJS0g8nMzO9iwsKoi6Ule2vqqo6Xl1dfaKysvLo+fPnE3JOnQo8lp7ukJycvDwyMnKij49P/23b
@@ -3534,7 +3627,7 @@
     <value>PMenu</value>
   </data>
   <data name="&gt;&gt;PBotones.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="PMenu.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -3601,6 +3694,9 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>789, 407</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Form1</value>
