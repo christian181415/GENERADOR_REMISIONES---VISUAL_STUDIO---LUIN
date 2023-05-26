@@ -34,6 +34,8 @@ Partial Class WinRemisiones
         Me.LInstrucciones = New System.Windows.Forms.Label()
         Me.BWRemisiones = New System.ComponentModel.BackgroundWorker()
         Me.OFDRemisiones = New System.Windows.Forms.OpenFileDialog()
+        Me.PBarDatos = New UIDC.UI_MaterialProgressBar()
+        Me.LDatos = New System.Windows.Forms.Label()
         Me.PCargaArchivo.SuspendLayout()
         Me.PRemisiones.SuspendLayout()
         Me.PInstrucciones.SuspendLayout()
@@ -87,6 +89,8 @@ Partial Class WinRemisiones
         '
         'PRemisiones
         '
+        Me.PRemisiones.Controls.Add(Me.LDatos)
+        Me.PRemisiones.Controls.Add(Me.PBarDatos)
         Me.PRemisiones.Controls.Add(Me.PInstrucciones)
         Me.PRemisiones.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PRemisiones.Location = New System.Drawing.Point(0, 0)
@@ -152,9 +156,33 @@ Partial Class WinRemisiones
         Me.LInstrucciones.Text = "Para un uso optimo del sistema generador de remisiones siga las siguientes instru" &
     "cciones."
         '
+        'BWRemisiones
+        '
+        '
         'OFDRemisiones
         '
         Me.OFDRemisiones.FileName = "OpenFileDialog1"
+        '
+        'PBarDatos
+        '
+        Me.PBarDatos.BackColor = System.Drawing.Color.Silver
+        Me.PBarDatos.BorderRadius = 5
+        Me.PBarDatos.Location = New System.Drawing.Point(17, 246)
+        Me.PBarDatos.MaximumValue = 100
+        Me.PBarDatos.Name = "PBarDatos"
+        Me.PBarDatos.ProgressColor = System.Drawing.Color.FromArgb(CType(CType(80, Byte), Integer), CType(CType(142, Byte), Integer), CType(CType(245, Byte), Integer))
+        Me.PBarDatos.Size = New System.Drawing.Size(437, 10)
+        Me.PBarDatos.TabIndex = 1
+        Me.PBarDatos.Value = 0
+        '
+        'LDatos
+        '
+        Me.LDatos.AutoSize = True
+        Me.LDatos.Location = New System.Drawing.Point(17, 227)
+        Me.LDatos.Name = "LDatos"
+        Me.LDatos.Size = New System.Drawing.Size(39, 13)
+        Me.LDatos.TabIndex = 2
+        Me.LDatos.Text = "Label5"
         '
         'WinRemisiones
         '
@@ -172,6 +200,7 @@ Partial Class WinRemisiones
         Me.Text = "WinRemisiones"
         Me.PCargaArchivo.ResumeLayout(False)
         Me.PRemisiones.ResumeLayout(False)
+        Me.PRemisiones.PerformLayout()
         Me.PInstrucciones.ResumeLayout(False)
         Me.ResumeLayout(False)
 
@@ -188,4 +217,6 @@ Partial Class WinRemisiones
     Friend WithEvents LInstrucciones As Label
     Friend WithEvents BWRemisiones As System.ComponentModel.BackgroundWorker
     Friend WithEvents OFDRemisiones As OpenFileDialog
+    Friend WithEvents LDatos As Label
+    Friend WithEvents PBarDatos As UIDC.UI_MaterialProgressBar
 End Class
