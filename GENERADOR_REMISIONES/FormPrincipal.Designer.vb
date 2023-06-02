@@ -24,6 +24,9 @@ Partial Class FormPrincipal
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormPrincipal))
         Me.PTaskBar = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.BtnOpciones = New System.Windows.Forms.Button()
         Me.PBoxLogo = New System.Windows.Forms.PictureBox()
         Me.BtnHistorial = New System.Windows.Forms.Button()
@@ -35,9 +38,6 @@ Partial Class FormPrincipal
         Me.PBoxMinimize = New System.Windows.Forms.PictureBox()
         Me.PBoxExit = New System.Windows.Forms.PictureBox()
         Me.PInfo = New System.Windows.Forms.Panel()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.PTaskBar.SuspendLayout()
         CType(Me.PBoxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PMenu.SuspendLayout()
@@ -60,6 +60,24 @@ Partial Class FormPrincipal
         resources.ApplyResources(Me.PTaskBar, "PTaskBar")
         Me.PTaskBar.ForeColor = System.Drawing.Color.White
         Me.PTaskBar.Name = "PTaskBar"
+        '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.White
+        resources.ApplyResources(Me.Panel3, "Panel3")
+        Me.Panel3.Name = "Panel3"
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.White
+        resources.ApplyResources(Me.Panel2, "Panel2")
+        Me.Panel2.Name = "Panel2"
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.White
+        resources.ApplyResources(Me.Panel1, "Panel1")
+        Me.Panel1.Name = "Panel1"
         '
         'BtnOpciones
         '
@@ -144,24 +162,6 @@ Partial Class FormPrincipal
         resources.ApplyResources(Me.PInfo, "PInfo")
         Me.PInfo.ForeColor = System.Drawing.Color.White
         Me.PInfo.Name = "PInfo"
-        '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.White
-        resources.ApplyResources(Me.Panel1, "Panel1")
-        Me.Panel1.Name = "Panel1"
-        '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.White
-        resources.ApplyResources(Me.Panel2, "Panel2")
-        Me.Panel2.Name = "Panel2"
-        '
-        'Panel3
-        '
-        Me.Panel3.BackColor = System.Drawing.Color.White
-        resources.ApplyResources(Me.Panel3, "Panel3")
-        Me.Panel3.Name = "Panel3"
         '
         'FormPrincipal
         '

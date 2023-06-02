@@ -10,10 +10,17 @@
     Public Function LoadWindow(Win01 As Form, PInfo As Panel, Form As Form, Win02 As Form, Win03 As Form)
         'Win01.Size = New Size(477, 307)
         Win01.MdiParent = Form
-        Win01.Show()
         Win01.Dock = DockStyle.Fill
+        Win01.Show()
+
+        'Win02.MdiParent = Form
+        'Win02.Dock = DockStyle.Fill
         Win02.Hide()
+
+        'Win03.MdiParent = Form
+        'Win03.Dock = DockStyle.Fill
         Win03.Hide()
+
         PInfo.Controls.Add(Win01)
     End Function
 #End Region
@@ -21,7 +28,7 @@
 
 #Region "BOTONES | CLASSCONFIG | FUNCIONES PARA LOS BOTONES DE LA BARRA TOP"
     Public Function ExitApp()
-        If MsgBox("Deseas cerrar la aplicaión?", vbYesNo Or vbQuestion, "Exit | Corporativo LUIN") = vbYes Then
+        If MsgBox("Desea cerrar la aplicación?", vbYesNo Or vbQuestion, "Exit | Corporativo LUIN") = vbYes Then
             End
         End If
     End Function

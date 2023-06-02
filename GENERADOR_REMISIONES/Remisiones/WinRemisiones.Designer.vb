@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class WinRemisiones
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,12 +20,17 @@ Partial Class WinRemisiones
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(WinRemisiones))
         Me.PCargaArchivo = New System.Windows.Forms.Panel()
         Me.BtnCargar = New System.Windows.Forms.Button()
-        Me.BtnMostrarRemisiones = New System.Windows.Forms.Button()
         Me.PRemisiones = New System.Windows.Forms.Panel()
+        Me.BtnGLU = New UIDC.UI_CustomButton()
+        Me.BtnLFA = New UIDC.UI_CustomButton()
+        Me.PBarDatos = New System.Windows.Forms.ProgressBar()
+        Me.LDatos = New System.Windows.Forms.Label()
         Me.PInstrucciones = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -34,8 +39,8 @@ Partial Class WinRemisiones
         Me.LInstrucciones = New System.Windows.Forms.Label()
         Me.BWRemisiones = New System.ComponentModel.BackgroundWorker()
         Me.OFDRemisiones = New System.Windows.Forms.OpenFileDialog()
-        Me.PBarDatos = New UIDC.UI_MaterialProgressBar()
-        Me.LDatos = New System.Windows.Forms.Label()
+        Me.TimeProcess = New System.Windows.Forms.Timer(Me.components)
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.PCargaArchivo.SuspendLayout()
         Me.PRemisiones.SuspendLayout()
         Me.PInstrucciones.SuspendLayout()
@@ -44,7 +49,6 @@ Partial Class WinRemisiones
         'PCargaArchivo
         '
         Me.PCargaArchivo.Controls.Add(Me.BtnCargar)
-        Me.PCargaArchivo.Controls.Add(Me.BtnMostrarRemisiones)
         Me.PCargaArchivo.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.PCargaArchivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PCargaArchivo.ForeColor = System.Drawing.Color.White
@@ -57,7 +61,7 @@ Partial Class WinRemisiones
         '
         Me.BtnCargar.BackColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(43, Byte), Integer))
         Me.BtnCargar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnCargar.Dock = System.Windows.Forms.DockStyle.Left
+        Me.BtnCargar.Dock = System.Windows.Forms.DockStyle.Fill
         Me.BtnCargar.FlatAppearance.BorderSize = 0
         Me.BtnCargar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red
         Me.BtnCargar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -65,32 +69,17 @@ Partial Class WinRemisiones
         Me.BtnCargar.ForeColor = System.Drawing.Color.White
         Me.BtnCargar.Location = New System.Drawing.Point(0, 0)
         Me.BtnCargar.Name = "BtnCargar"
-        Me.BtnCargar.Size = New System.Drawing.Size(192, 38)
+        Me.BtnCargar.Size = New System.Drawing.Size(477, 38)
         Me.BtnCargar.TabIndex = 1
         Me.BtnCargar.Text = "CARGAR ARCHIVO"
         Me.BtnCargar.UseVisualStyleBackColor = False
         '
-        'BtnMostrarRemisiones
-        '
-        Me.BtnMostrarRemisiones.BackColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(43, Byte), Integer))
-        Me.BtnMostrarRemisiones.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnMostrarRemisiones.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BtnMostrarRemisiones.FlatAppearance.BorderSize = 0
-        Me.BtnMostrarRemisiones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red
-        Me.BtnMostrarRemisiones.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnMostrarRemisiones.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnMostrarRemisiones.ForeColor = System.Drawing.Color.White
-        Me.BtnMostrarRemisiones.Location = New System.Drawing.Point(254, 0)
-        Me.BtnMostrarRemisiones.Name = "BtnMostrarRemisiones"
-        Me.BtnMostrarRemisiones.Size = New System.Drawing.Size(223, 38)
-        Me.BtnMostrarRemisiones.TabIndex = 3
-        Me.BtnMostrarRemisiones.Text = "MOSTRAR REMISIONES"
-        Me.BtnMostrarRemisiones.UseVisualStyleBackColor = False
-        '
         'PRemisiones
         '
-        Me.PRemisiones.Controls.Add(Me.LDatos)
+        Me.PRemisiones.Controls.Add(Me.BtnGLU)
+        Me.PRemisiones.Controls.Add(Me.BtnLFA)
         Me.PRemisiones.Controls.Add(Me.PBarDatos)
+        Me.PRemisiones.Controls.Add(Me.LDatos)
         Me.PRemisiones.Controls.Add(Me.PInstrucciones)
         Me.PRemisiones.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PRemisiones.Location = New System.Drawing.Point(0, 0)
@@ -98,60 +87,154 @@ Partial Class WinRemisiones
         Me.PRemisiones.Size = New System.Drawing.Size(477, 269)
         Me.PRemisiones.TabIndex = 3
         '
+        'BtnGLU
+        '
+        Me.BtnGLU.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnGLU.BackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
+        Me.BtnGLU.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(43, Byte), Integer))
+        Me.BtnGLU.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.BtnGLU.ButtonImage = CType(resources.GetObject("BtnGLU.ButtonImage"), System.Drawing.Image)
+        Me.BtnGLU.ButtonStyle = UIDC.UI_CustomButton.Style.MaterialRounded
+        Me.BtnGLU.ButtonText = "Remisiones GLU"
+        Me.BtnGLU.ClickBackColor = System.Drawing.Color.Red
+        Me.BtnGLU.ClickTextColor = System.Drawing.Color.White
+        Me.BtnGLU.CornerRadius = 5
+        Me.BtnGLU.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnGLU.Horizontal_Alignment = System.Drawing.StringAlignment.Center
+        Me.BtnGLU.HoverBackgroundColor = System.Drawing.Color.Red
+        Me.BtnGLU.HoverTextColor = System.Drawing.Color.White
+        Me.BtnGLU.ImagePosition = UIDC.UI_CustomButton.imgPosition.Right
+        Me.BtnGLU.Location = New System.Drawing.Point(284, 192)
+        Me.BtnGLU.MaximumSize = New System.Drawing.Size(500, 31)
+        Me.BtnGLU.Name = "BtnGLU"
+        Me.BtnGLU.Size = New System.Drawing.Size(172, 31)
+        Me.BtnGLU.TabIndex = 21
+        Me.BtnGLU.Text = "UI_CustomButton1"
+        Me.BtnGLU.TextColor = System.Drawing.Color.White
+        Me.BtnGLU.Vertical_Alignment = System.Drawing.StringAlignment.Center
+        '
+        'BtnLFA
+        '
+        Me.BtnLFA.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BtnLFA.BackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
+        Me.BtnLFA.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(43, Byte), Integer))
+        Me.BtnLFA.ButtonImage = CType(resources.GetObject("BtnLFA.ButtonImage"), System.Drawing.Image)
+        Me.BtnLFA.ButtonStyle = UIDC.UI_CustomButton.Style.MaterialRounded
+        Me.BtnLFA.ButtonText = "Remisiones LFA"
+        Me.BtnLFA.ClickBackColor = System.Drawing.Color.Red
+        Me.BtnLFA.ClickTextColor = System.Drawing.Color.White
+        Me.BtnLFA.CornerRadius = 5
+        Me.BtnLFA.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnLFA.Horizontal_Alignment = System.Drawing.StringAlignment.Center
+        Me.BtnLFA.HoverBackgroundColor = System.Drawing.Color.Red
+        Me.BtnLFA.HoverTextColor = System.Drawing.Color.White
+        Me.BtnLFA.ImagePosition = UIDC.UI_CustomButton.imgPosition.Left
+        Me.BtnLFA.Location = New System.Drawing.Point(20, 192)
+        Me.BtnLFA.MaximumSize = New System.Drawing.Size(500, 31)
+        Me.BtnLFA.Name = "BtnLFA"
+        Me.BtnLFA.Size = New System.Drawing.Size(172, 31)
+        Me.BtnLFA.TabIndex = 20
+        Me.BtnLFA.Text = "UI_CustomButton1"
+        Me.BtnLFA.TextColor = System.Drawing.Color.White
+        Me.BtnLFA.Vertical_Alignment = System.Drawing.StringAlignment.Center
+        '
+        'PBarDatos
+        '
+        Me.PBarDatos.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PBarDatos.BackColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
+        Me.PBarDatos.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(43, Byte), Integer))
+        Me.PBarDatos.Location = New System.Drawing.Point(17, 246)
+        Me.PBarDatos.Margin = New System.Windows.Forms.Padding(0)
+        Me.PBarDatos.Name = "PBarDatos"
+        Me.PBarDatos.Size = New System.Drawing.Size(437, 10)
+        Me.PBarDatos.Style = System.Windows.Forms.ProgressBarStyle.Continuous
+        Me.PBarDatos.TabIndex = 3
+        Me.PBarDatos.Visible = False
+        '
+        'LDatos
+        '
+        Me.LDatos.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LDatos.AutoSize = True
+        Me.LDatos.Location = New System.Drawing.Point(17, 228)
+        Me.LDatos.Name = "LDatos"
+        Me.LDatos.Size = New System.Drawing.Size(49, 13)
+        Me.LDatos.TabIndex = 2
+        Me.LDatos.Text = "Registro:"
+        Me.LDatos.Visible = False
+        '
         'PInstrucciones
         '
+        Me.PInstrucciones.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PInstrucciones.Controls.Add(Me.Label5)
         Me.PInstrucciones.Controls.Add(Me.Label4)
         Me.PInstrucciones.Controls.Add(Me.Label3)
         Me.PInstrucciones.Controls.Add(Me.Label2)
         Me.PInstrucciones.Controls.Add(Me.Label1)
         Me.PInstrucciones.Controls.Add(Me.LInstrucciones)
-        Me.PInstrucciones.Location = New System.Drawing.Point(17, 48)
+        Me.PInstrucciones.Location = New System.Drawing.Point(19, 13)
         Me.PInstrucciones.Name = "PInstrucciones"
         Me.PInstrucciones.Size = New System.Drawing.Size(437, 166)
         Me.PInstrucciones.TabIndex = 0
         '
         'Label4
         '
+        Me.Label4.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(13, 131)
+        Me.Label4.Location = New System.Drawing.Point(14, 134)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(410, 19)
         Me.Label4.TabIndex = 17
-        Me.Label4.Text = "- Cargue el archivo"
+        Me.Label4.Text = "- Cargue el archivo excel con formato .xls"
         '
         'Label3
         '
+        Me.Label3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(13, 112)
+        Me.Label3.Location = New System.Drawing.Point(14, 98)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(410, 19)
         Me.Label3.TabIndex = 16
-        Me.Label3.Text = "- Cargue el archivo"
+        Me.Label3.Text = "- Seleccione la empresa con la que se guarda la remisión."
         '
         'Label2
         '
+        Me.Label2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(13, 93)
+        Me.Label2.Location = New System.Drawing.Point(24, 76)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(410, 19)
         Me.Label2.TabIndex = 15
-        Me.Label2.Text = "- Cargue el archivo"
+        Me.Label2.Text = "00/ENE./0000     00/FEB./0000     00/MAR./0000"
         '
         'Label1
         '
+        Me.Label1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(13, 74)
+        Me.Label1.Location = New System.Drawing.Point(14, 55)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(410, 19)
+        Me.Label1.Size = New System.Drawing.Size(410, 35)
         Me.Label1.TabIndex = 14
-        Me.Label1.Text = "- Cargue el archivo"
+        Me.Label1.Text = "- Modifique el archivo para que las fechas tengan un formato correcto."
         '
         'LInstrucciones
         '
+        Me.LInstrucciones.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LInstrucciones.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LInstrucciones.Location = New System.Drawing.Point(13, 10)
+        Me.LInstrucciones.Location = New System.Drawing.Point(14, 13)
         Me.LInstrucciones.Name = "LInstrucciones"
-        Me.LInstrucciones.Size = New System.Drawing.Size(410, 38)
+        Me.LInstrucciones.Size = New System.Drawing.Size(410, 37)
         Me.LInstrucciones.TabIndex = 13
         Me.LInstrucciones.Text = "Para un uso optimo del sistema generador de remisiones siga las siguientes instru" &
     "cciones."
@@ -163,26 +246,20 @@ Partial Class WinRemisiones
         '
         Me.OFDRemisiones.FileName = "OpenFileDialog1"
         '
-        'PBarDatos
+        'TimeProcess
         '
-        Me.PBarDatos.BackColor = System.Drawing.Color.Silver
-        Me.PBarDatos.BorderRadius = 5
-        Me.PBarDatos.Location = New System.Drawing.Point(17, 246)
-        Me.PBarDatos.MaximumValue = 100
-        Me.PBarDatos.Name = "PBarDatos"
-        Me.PBarDatos.ProgressColor = System.Drawing.Color.FromArgb(CType(CType(80, Byte), Integer), CType(CType(142, Byte), Integer), CType(CType(245, Byte), Integer))
-        Me.PBarDatos.Size = New System.Drawing.Size(437, 10)
-        Me.PBarDatos.TabIndex = 1
-        Me.PBarDatos.Value = 0
         '
-        'LDatos
+        'Label5
         '
-        Me.LDatos.AutoSize = True
-        Me.LDatos.Location = New System.Drawing.Point(17, 227)
-        Me.LDatos.Name = "LDatos"
-        Me.LDatos.Size = New System.Drawing.Size(39, 13)
-        Me.LDatos.TabIndex = 2
-        Me.LDatos.Text = "Label5"
+        Me.Label5.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(27, 117)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(397, 19)
+        Me.Label5.TabIndex = 18
+        Me.Label5.Text = "Remisiones LFA     Remisiones GLU"
         '
         'WinRemisiones
         '
@@ -197,7 +274,7 @@ Partial Class WinRemisiones
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "WinRemisiones"
         Me.ShowIcon = False
-        Me.Text = "WinRemisiones"
+        Me.Text = "UI_TitleBanner1"
         Me.PCargaArchivo.ResumeLayout(False)
         Me.PRemisiones.ResumeLayout(False)
         Me.PRemisiones.PerformLayout()
@@ -207,7 +284,6 @@ Partial Class WinRemisiones
     End Sub
     Friend WithEvents PCargaArchivo As Panel
     Friend WithEvents PRemisiones As Panel
-    Friend WithEvents BtnMostrarRemisiones As Button
     Friend WithEvents BtnCargar As Button
     Friend WithEvents PInstrucciones As Panel
     Friend WithEvents Label4 As Label
@@ -218,5 +294,9 @@ Partial Class WinRemisiones
     Friend WithEvents BWRemisiones As System.ComponentModel.BackgroundWorker
     Friend WithEvents OFDRemisiones As OpenFileDialog
     Friend WithEvents LDatos As Label
-    Friend WithEvents PBarDatos As UIDC.UI_MaterialProgressBar
+    Friend WithEvents PBarDatos As ProgressBar
+    Friend WithEvents BtnLFA As UIDC.UI_CustomButton
+    Friend WithEvents BtnGLU As UIDC.UI_CustomButton
+    Friend WithEvents TimeProcess As Timer
+    Friend WithEvents Label5 As Label
 End Class

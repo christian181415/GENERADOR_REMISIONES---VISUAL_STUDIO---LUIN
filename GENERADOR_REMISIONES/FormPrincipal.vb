@@ -18,11 +18,9 @@
     End Sub
     Private Sub PBoxMaximize_Click(sender As Object, e As EventArgs) Handles PBoxMaximize.Click
         NewConfig.MaximizeApp(Me)
-        'WinRemisiones.Dock = DockStyle.Fill
     End Sub
     Private Sub PBoxLogo_Click(sender As Object, e As EventArgs) Handles PBoxLogo.Click
         NewConfig.ResponsiveTaskBar(PTaskBar)
-        'WinRemisiones.Dock = DockStyle.Fill
     End Sub
 #End Region
 
