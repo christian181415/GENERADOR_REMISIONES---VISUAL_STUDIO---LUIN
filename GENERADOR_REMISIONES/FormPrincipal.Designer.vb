@@ -32,7 +32,7 @@ Partial Class FormPrincipal
         Me.BtnHistorial = New System.Windows.Forms.Button()
         Me.BtnRemisiones = New System.Windows.Forms.Button()
         Me.PMenu = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.LNombrePanel = New System.Windows.Forms.Label()
         Me.PBotones = New System.Windows.Forms.Panel()
         Me.PBoxMaximize = New System.Windows.Forms.PictureBox()
         Me.PBoxMinimize = New System.Windows.Forms.PictureBox()
@@ -116,17 +116,17 @@ Partial Class FormPrincipal
         'PMenu
         '
         Me.PMenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.PMenu.Controls.Add(Me.Label1)
+        Me.PMenu.Controls.Add(Me.LNombrePanel)
         Me.PMenu.Controls.Add(Me.PBotones)
         resources.ApplyResources(Me.PMenu, "PMenu")
         Me.PMenu.ForeColor = System.Drawing.Color.White
         Me.PMenu.Name = "PMenu"
         '
-        'Label1
+        'LNombrePanel
         '
-        resources.ApplyResources(Me.Label1, "Label1")
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Name = "Label1"
+        resources.ApplyResources(Me.LNombrePanel, "LNombrePanel")
+        Me.LNombrePanel.ForeColor = System.Drawing.Color.White
+        Me.LNombrePanel.Name = "LNombrePanel"
         '
         'PBotones
         '
@@ -196,7 +196,7 @@ Partial Class FormPrincipal
     Friend WithEvents BtnOpciones As Button
     Friend WithEvents BtnHistorial As Button
     Friend WithEvents BtnRemisiones As Button
-    Friend WithEvents Label1 As Label
+    Friend WithEvents LNombrePanel As Label
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel1 As Panel

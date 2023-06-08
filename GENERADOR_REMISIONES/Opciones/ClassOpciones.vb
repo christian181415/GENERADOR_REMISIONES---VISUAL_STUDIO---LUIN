@@ -1,15 +1,14 @@
 ﻿Imports System.Configuration
 Imports System.Data.OleDb
-Imports System.Globalization
 
-Public Class ClassHistorial
+Public Class ClassOpciones
 #Region "VARIABLES GLOBALES | WINHISTORIAL | VARIABLES DE ACCESO A LOS METODOS DE LA CLASE HISTORIAL"
     Dim TablaRemisiones As String = "LFA_REMS"
 #End Region
 
 
 #Region "WINHISTORIAL LOAD | WINHISTORIAL | CONFIGURACION DE CARGA INICIAL DEL FORMULARIO"
-    Public Function ConfigLoad(CmbYear As ComboBox, CmbMes As ComboBox, BtnLFA As Button)
+    Public Function ConfigLoad(CmbYear As ComboBox, BtnLFA As Button)
         CmbYear.Items.Add(DateTime.Now.Year - 3)
         CmbYear.Items.Add(DateTime.Now.Year - 2)
         CmbYear.Items.Add(DateTime.Now.Year - 1)
@@ -20,7 +19,6 @@ Public Class ClassHistorial
 
         BtnLFA.BackColor = Color.Red
         CmbYear.Text = DateTime.Now.Year
-        CmbMes.Text = MonthName(Date.Now.Month - 1)
     End Function
 #End Region
 
@@ -60,27 +58,6 @@ Public Class ClassHistorial
         Else
             MsgBox("Seleccione una empresa a consultar.", MsgBoxStyle.Information, "Información | Corporativo LUIN | CmbYear")
         End If
-    End Function
-#End Region
-
-
-#Region "BTN MOSTRAR REMISIONES | WINHISTORIAL | ACCIONES PARA MOSTRAR LAS REMISIONES DE TAL AÑO - MES"
-    Public Function MostrarRemisiones(CmbMes As ComboBox, CmbYear As ComboBox, DtgHistorial As DataGridView)
-        Dim CadenaConexionAccess As String = ConfigurationManager.ConnectionStrings("ConexionDB").ConnectionString
-        Dim ConexionDB As OleDbConnection = New OleDbConnection(CadenaConexionAccess)
-        Try
-            ConexionDB.Open()
-            Dim Consulta = "SELECT Serie, Folio, Codigo, Producto, Unidad, CostoTotal FROM " & TablaRemisiones &
-                        " WHERE FORMAT(FechaArchivo, 'yyyy') = " & CmbYear.Text &
-                        " AND FORMAT(FechaArchivo, 'M') = " & DateTime.ParseExact(CmbMes.Text, "MMMM", CultureInfo.CurrentCulture).Month
-            Dim DataAdapter As New OleDbDataAdapter(Consulta, ConexionDB)
-            Dim DT As New DataTable
-            DataAdapter.Fill(DT)
-            DtgHistorial.DataSource = DT
-            ConexionDB.Close()
-        Catch ex As Exception
-            MsgBox("Error" & Chr(10) & ex.Message, MsgBoxStyle.Critical, "Error | Corporativo LUIN | BtnMostrarRemisiones")
-        End Try
     End Function
 #End Region
 End Class

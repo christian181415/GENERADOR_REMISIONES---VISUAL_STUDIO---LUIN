@@ -27,28 +27,26 @@ Partial Class WinHistorial
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.PHistorial = New System.Windows.Forms.Panel()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.BtnGLU = New UIDC.UI_CustomButton()
-        Me.BtnLFA = New UIDC.UI_CustomButton()
+        Me.POpciones = New System.Windows.Forms.TableLayoutPanel()
+        Me.BtnLFA = New System.Windows.Forms.Button()
+        Me.CmbYear = New System.Windows.Forms.ComboBox()
+        Me.BtnGLU = New System.Windows.Forms.Button()
+        Me.CmbMes = New System.Windows.Forms.ComboBox()
         Me.DTGHistorial = New System.Windows.Forms.DataGridView()
-        Me.PCargaArchivo = New System.Windows.Forms.Panel()
+        Me.PMostrarHistorial = New System.Windows.Forms.Panel()
         Me.BtnMostrarRemisiones = New System.Windows.Forms.Button()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.PHistorial.SuspendLayout()
+        Me.POpciones.SuspendLayout()
         CType(Me.DTGHistorial, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PCargaArchivo.SuspendLayout()
-        Me.TableLayoutPanel1.SuspendLayout()
+        Me.PMostrarHistorial.SuspendLayout()
         Me.SuspendLayout()
         '
         'PHistorial
         '
         Me.PHistorial.BackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
-        Me.PHistorial.Controls.Add(Me.TableLayoutPanel1)
-        Me.PHistorial.Controls.Add(Me.BtnGLU)
+        Me.PHistorial.Controls.Add(Me.POpciones)
         Me.PHistorial.Controls.Add(Me.DTGHistorial)
-        Me.PHistorial.Controls.Add(Me.PCargaArchivo)
+        Me.PHistorial.Controls.Add(Me.PMostrarHistorial)
         Me.PHistorial.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PHistorial.ForeColor = System.Drawing.Color.White
         Me.PHistorial.Location = New System.Drawing.Point(0, 0)
@@ -56,103 +54,102 @@ Partial Class WinHistorial
         Me.PHistorial.Size = New System.Drawing.Size(477, 307)
         Me.PHistorial.TabIndex = 6
         '
-        'ComboBox2
+        'POpciones
         '
-        Me.ComboBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ComboBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(43, Byte), Integer))
-        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox2.ForeColor = System.Drawing.Color.White
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"})
-        Me.ComboBox2.Location = New System.Drawing.Point(3, 3)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(232, 24)
-        Me.ComboBox2.TabIndex = 25
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(43, Byte), Integer))
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox1.ForeColor = System.Drawing.Color.White
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(241, 3)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(233, 24)
-        Me.ComboBox1.TabIndex = 24
-        '
-        'BtnGLU
-        '
-        Me.BtnGLU.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnGLU.BackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
-        Me.BtnGLU.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(43, Byte), Integer))
-        Me.BtnGLU.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.BtnGLU.ButtonImage = CType(resources.GetObject("BtnGLU.ButtonImage"), System.Drawing.Image)
-        Me.BtnGLU.ButtonStyle = UIDC.UI_CustomButton.Style.MaterialRounded
-        Me.BtnGLU.ButtonText = "Remisiones GLU"
-        Me.BtnGLU.ClickBackColor = System.Drawing.Color.Red
-        Me.BtnGLU.ClickTextColor = System.Drawing.Color.White
-        Me.BtnGLU.CornerRadius = 5
-        Me.BtnGLU.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnGLU.Horizontal_Alignment = System.Drawing.StringAlignment.Center
-        Me.BtnGLU.HoverBackgroundColor = System.Drawing.Color.Red
-        Me.BtnGLU.HoverTextColor = System.Drawing.Color.White
-        Me.BtnGLU.ImagePosition = UIDC.UI_CustomButton.imgPosition.Right
-        Me.BtnGLU.Location = New System.Drawing.Point(3, 141)
-        Me.BtnGLU.MaximumSize = New System.Drawing.Size(500, 31)
-        Me.BtnGLU.Name = "BtnGLU"
-        Me.BtnGLU.Size = New System.Drawing.Size(251, 31)
-        Me.BtnGLU.TabIndex = 23
-        Me.BtnGLU.Text = "UI_CustomButton1"
-        Me.BtnGLU.TextColor = System.Drawing.Color.White
-        Me.BtnGLU.Vertical_Alignment = System.Drawing.StringAlignment.Center
+        Me.POpciones.ColumnCount = 2
+        Me.POpciones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.POpciones.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.POpciones.Controls.Add(Me.BtnLFA, 0, 0)
+        Me.POpciones.Controls.Add(Me.CmbYear, 0, 1)
+        Me.POpciones.Controls.Add(Me.BtnGLU, 1, 0)
+        Me.POpciones.Controls.Add(Me.CmbMes, 1, 1)
+        Me.POpciones.Dock = System.Windows.Forms.DockStyle.Top
+        Me.POpciones.Location = New System.Drawing.Point(0, 0)
+        Me.POpciones.Name = "POpciones"
+        Me.POpciones.RowCount = 2
+        Me.POpciones.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.60606!))
+        Me.POpciones.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.39394!))
+        Me.POpciones.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.POpciones.Size = New System.Drawing.Size(477, 66)
+        Me.POpciones.TabIndex = 26
         '
         'BtnLFA
         '
-        Me.BtnLFA.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnLFA.BackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
-        Me.BtnLFA.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(43, Byte), Integer))
-        Me.BtnLFA.ButtonImage = CType(resources.GetObject("BtnLFA.ButtonImage"), System.Drawing.Image)
-        Me.BtnLFA.ButtonStyle = UIDC.UI_CustomButton.Style.MaterialRounded
-        Me.BtnLFA.ButtonText = "Remisiones LFA"
-        Me.BtnLFA.ClickBackColor = System.Drawing.Color.Red
-        Me.BtnLFA.ClickTextColor = System.Drawing.Color.White
-        Me.BtnLFA.CornerRadius = 5
+        Me.BtnLFA.BackColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(43, Byte), Integer))
+        Me.BtnLFA.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.BtnLFA.FlatAppearance.BorderSize = 0
+        Me.BtnLFA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red
+        Me.BtnLFA.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnLFA.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnLFA.Horizontal_Alignment = System.Drawing.StringAlignment.Center
-        Me.BtnLFA.HoverBackgroundColor = System.Drawing.Color.Red
-        Me.BtnLFA.HoverTextColor = System.Drawing.Color.White
-        Me.BtnLFA.ImagePosition = UIDC.UI_CustomButton.imgPosition.Left
-        Me.BtnLFA.Location = New System.Drawing.Point(3, 33)
-        Me.BtnLFA.MaximumSize = New System.Drawing.Size(500, 31)
+        Me.BtnLFA.Image = CType(resources.GetObject("BtnLFA.Image"), System.Drawing.Image)
+        Me.BtnLFA.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnLFA.Location = New System.Drawing.Point(3, 3)
         Me.BtnLFA.Name = "BtnLFA"
-        Me.BtnLFA.Size = New System.Drawing.Size(232, 31)
-        Me.BtnLFA.TabIndex = 22
-        Me.BtnLFA.Text = "UI_CustomButton1"
-        Me.BtnLFA.TextColor = System.Drawing.Color.White
-        Me.BtnLFA.Vertical_Alignment = System.Drawing.StringAlignment.Center
+        Me.BtnLFA.Size = New System.Drawing.Size(232, 34)
+        Me.BtnLFA.TabIndex = 29
+        Me.BtnLFA.Text = "Remisiones LFA"
+        Me.BtnLFA.UseVisualStyleBackColor = False
+        '
+        'CmbYear
+        '
+        Me.CmbYear.BackColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(43, Byte), Integer))
+        Me.CmbYear.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CmbYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CmbYear.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmbYear.ForeColor = System.Drawing.Color.White
+        Me.CmbYear.FormattingEnabled = True
+        Me.CmbYear.Location = New System.Drawing.Point(3, 43)
+        Me.CmbYear.Name = "CmbYear"
+        Me.CmbYear.Size = New System.Drawing.Size(232, 24)
+        Me.CmbYear.TabIndex = 24
+        '
+        'BtnGLU
+        '
+        Me.BtnGLU.BackColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(43, Byte), Integer))
+        Me.BtnGLU.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.BtnGLU.FlatAppearance.BorderSize = 0
+        Me.BtnGLU.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red
+        Me.BtnGLU.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnGLU.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnGLU.Image = CType(resources.GetObject("BtnGLU.Image"), System.Drawing.Image)
+        Me.BtnGLU.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnGLU.Location = New System.Drawing.Point(241, 3)
+        Me.BtnGLU.Name = "BtnGLU"
+        Me.BtnGLU.Size = New System.Drawing.Size(233, 34)
+        Me.BtnGLU.TabIndex = 27
+        Me.BtnGLU.Text = "Remisiones GLU"
+        Me.BtnGLU.UseVisualStyleBackColor = False
+        '
+        'CmbMes
+        '
+        Me.CmbMes.BackColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(43, Byte), Integer))
+        Me.CmbMes.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CmbMes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CmbMes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmbMes.ForeColor = System.Drawing.Color.White
+        Me.CmbMes.FormattingEnabled = True
+        Me.CmbMes.Location = New System.Drawing.Point(241, 43)
+        Me.CmbMes.Name = "CmbMes"
+        Me.CmbMes.Size = New System.Drawing.Size(233, 24)
+        Me.CmbMes.TabIndex = 25
         '
         'DTGHistorial
         '
+        Me.DTGHistorial.AllowUserToAddRows = False
+        Me.DTGHistorial.AllowUserToDeleteRows = False
+        Me.DTGHistorial.AllowUserToResizeColumns = False
+        Me.DTGHistorial.AllowUserToResizeRows = False
         Me.DTGHistorial.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DTGHistorial.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DTGHistorial.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
         Me.DTGHistorial.BorderStyle = System.Windows.Forms.BorderStyle.None
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(43, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer), CType(CType(150, Byte), Integer))
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Red
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DTGHistorial.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
@@ -165,7 +162,8 @@ Partial Class WinHistorial
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DTGHistorial.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DTGHistorial.Location = New System.Drawing.Point(0, 69)
+        Me.DTGHistorial.Location = New System.Drawing.Point(0, 72)
+        Me.DTGHistorial.MultiSelect = False
         Me.DTGHistorial.Name = "DTGHistorial"
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
@@ -175,19 +173,20 @@ Partial Class WinHistorial
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DTGHistorial.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
-        Me.DTGHistorial.Size = New System.Drawing.Size(477, 200)
+        Me.DTGHistorial.RowHeadersVisible = False
+        Me.DTGHistorial.Size = New System.Drawing.Size(477, 197)
         Me.DTGHistorial.TabIndex = 6
         '
-        'PCargaArchivo
+        'PMostrarHistorial
         '
-        Me.PCargaArchivo.Controls.Add(Me.BtnMostrarRemisiones)
-        Me.PCargaArchivo.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PCargaArchivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PCargaArchivo.ForeColor = System.Drawing.Color.White
-        Me.PCargaArchivo.Location = New System.Drawing.Point(0, 269)
-        Me.PCargaArchivo.Name = "PCargaArchivo"
-        Me.PCargaArchivo.Size = New System.Drawing.Size(477, 38)
-        Me.PCargaArchivo.TabIndex = 5
+        Me.PMostrarHistorial.Controls.Add(Me.BtnMostrarRemisiones)
+        Me.PMostrarHistorial.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.PMostrarHistorial.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PMostrarHistorial.ForeColor = System.Drawing.Color.White
+        Me.PMostrarHistorial.Location = New System.Drawing.Point(0, 269)
+        Me.PMostrarHistorial.Name = "PMostrarHistorial"
+        Me.PMostrarHistorial.Size = New System.Drawing.Size(477, 38)
+        Me.PMostrarHistorial.TabIndex = 5
         '
         'BtnMostrarRemisiones
         '
@@ -206,33 +205,6 @@ Partial Class WinHistorial
         Me.BtnMostrarRemisiones.Text = "MOSTRAR REMISIONES"
         Me.BtnMostrarRemisiones.UseVisualStyleBackColor = False
         '
-        'TableLayoutPanel1
-        '
-        Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.ComboBox2, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.ComboBox1, 1, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.BtnLFA, 0, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.Button1, 1, 1)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 2
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.67816!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.32184!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(477, 69)
-        Me.TableLayoutPanel1.TabIndex = 26
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(241, 33)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 26
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'WinHistorial
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -245,21 +217,20 @@ Partial Class WinHistorial
         Me.Name = "WinHistorial"
         Me.Text = "WinHistorial"
         Me.PHistorial.ResumeLayout(False)
+        Me.POpciones.ResumeLayout(False)
         CType(Me.DTGHistorial, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PCargaArchivo.ResumeLayout(False)
-        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.PMostrarHistorial.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents PHistorial As Panel
-    Friend WithEvents PCargaArchivo As Panel
+    Friend WithEvents PMostrarHistorial As Panel
     Friend WithEvents BtnMostrarRemisiones As Button
     Friend WithEvents DTGHistorial As DataGridView
-    Friend WithEvents BtnGLU As UIDC.UI_CustomButton
-    Friend WithEvents BtnLFA As UIDC.UI_CustomButton
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents ComboBox2 As ComboBox
-    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-    Friend WithEvents Button1 As Button
+    Friend WithEvents POpciones As TableLayoutPanel
+    Friend WithEvents CmbMes As ComboBox
+    Friend WithEvents CmbYear As ComboBox
+    Friend WithEvents BtnGLU As Button
+    Friend WithEvents BtnLFA As Button
 End Class

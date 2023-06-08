@@ -27,11 +27,13 @@ Partial Class WinRemisiones
         Me.PCargaArchivo = New System.Windows.Forms.Panel()
         Me.BtnCargar = New System.Windows.Forms.Button()
         Me.PRemisiones = New System.Windows.Forms.Panel()
-        Me.BtnGLU = New UIDC.UI_CustomButton()
-        Me.BtnLFA = New UIDC.UI_CustomButton()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.BtnGLU = New System.Windows.Forms.Button()
+        Me.BtnLFA = New System.Windows.Forms.Button()
         Me.PBarDatos = New System.Windows.Forms.ProgressBar()
         Me.LDatos = New System.Windows.Forms.Label()
         Me.PInstrucciones = New System.Windows.Forms.Panel()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -40,9 +42,9 @@ Partial Class WinRemisiones
         Me.BWRemisiones = New System.ComponentModel.BackgroundWorker()
         Me.OFDRemisiones = New System.Windows.Forms.OpenFileDialog()
         Me.TimeProcess = New System.Windows.Forms.Timer(Me.components)
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.PCargaArchivo.SuspendLayout()
         Me.PRemisiones.SuspendLayout()
+        Me.TableLayoutPanel1.SuspendLayout()
         Me.PInstrucciones.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -76,8 +78,7 @@ Partial Class WinRemisiones
         '
         'PRemisiones
         '
-        Me.PRemisiones.Controls.Add(Me.BtnGLU)
-        Me.PRemisiones.Controls.Add(Me.BtnLFA)
+        Me.PRemisiones.Controls.Add(Me.TableLayoutPanel1)
         Me.PRemisiones.Controls.Add(Me.PBarDatos)
         Me.PRemisiones.Controls.Add(Me.LDatos)
         Me.PRemisiones.Controls.Add(Me.PInstrucciones)
@@ -87,56 +88,55 @@ Partial Class WinRemisiones
         Me.PRemisiones.Size = New System.Drawing.Size(477, 269)
         Me.PRemisiones.TabIndex = 3
         '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TableLayoutPanel1.ColumnCount = 2
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.BtnGLU, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.BtnLFA, 0, 0)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(20, 222)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 1
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(436, 40)
+        Me.TableLayoutPanel1.TabIndex = 22
+        '
         'BtnGLU
         '
-        Me.BtnGLU.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnGLU.BackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
-        Me.BtnGLU.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(43, Byte), Integer))
-        Me.BtnGLU.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.BtnGLU.ButtonImage = CType(resources.GetObject("BtnGLU.ButtonImage"), System.Drawing.Image)
-        Me.BtnGLU.ButtonStyle = UIDC.UI_CustomButton.Style.MaterialRounded
-        Me.BtnGLU.ButtonText = "Remisiones GLU"
-        Me.BtnGLU.ClickBackColor = System.Drawing.Color.Red
-        Me.BtnGLU.ClickTextColor = System.Drawing.Color.White
-        Me.BtnGLU.CornerRadius = 5
+        Me.BtnGLU.BackColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(43, Byte), Integer))
+        Me.BtnGLU.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.BtnGLU.FlatAppearance.BorderSize = 0
+        Me.BtnGLU.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red
+        Me.BtnGLU.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnGLU.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnGLU.Horizontal_Alignment = System.Drawing.StringAlignment.Center
-        Me.BtnGLU.HoverBackgroundColor = System.Drawing.Color.Red
-        Me.BtnGLU.HoverTextColor = System.Drawing.Color.White
-        Me.BtnGLU.ImagePosition = UIDC.UI_CustomButton.imgPosition.Right
-        Me.BtnGLU.Location = New System.Drawing.Point(284, 192)
-        Me.BtnGLU.MaximumSize = New System.Drawing.Size(500, 31)
+        Me.BtnGLU.Image = CType(resources.GetObject("BtnGLU.Image"), System.Drawing.Image)
+        Me.BtnGLU.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnGLU.Location = New System.Drawing.Point(221, 3)
         Me.BtnGLU.Name = "BtnGLU"
-        Me.BtnGLU.Size = New System.Drawing.Size(172, 31)
-        Me.BtnGLU.TabIndex = 21
-        Me.BtnGLU.Text = "UI_CustomButton1"
-        Me.BtnGLU.TextColor = System.Drawing.Color.White
-        Me.BtnGLU.Vertical_Alignment = System.Drawing.StringAlignment.Center
+        Me.BtnGLU.Size = New System.Drawing.Size(212, 34)
+        Me.BtnGLU.TabIndex = 28
+        Me.BtnGLU.Text = "Remisiones GLU"
+        Me.BtnGLU.UseVisualStyleBackColor = False
         '
         'BtnLFA
         '
-        Me.BtnLFA.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.BtnLFA.BackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
-        Me.BtnLFA.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(43, Byte), Integer))
-        Me.BtnLFA.ButtonImage = CType(resources.GetObject("BtnLFA.ButtonImage"), System.Drawing.Image)
-        Me.BtnLFA.ButtonStyle = UIDC.UI_CustomButton.Style.MaterialRounded
-        Me.BtnLFA.ButtonText = "Remisiones LFA"
-        Me.BtnLFA.ClickBackColor = System.Drawing.Color.Red
-        Me.BtnLFA.ClickTextColor = System.Drawing.Color.White
-        Me.BtnLFA.CornerRadius = 5
+        Me.BtnLFA.BackColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(43, Byte), Integer))
+        Me.BtnLFA.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.BtnLFA.FlatAppearance.BorderSize = 0
+        Me.BtnLFA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red
+        Me.BtnLFA.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnLFA.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnLFA.Horizontal_Alignment = System.Drawing.StringAlignment.Center
-        Me.BtnLFA.HoverBackgroundColor = System.Drawing.Color.Red
-        Me.BtnLFA.HoverTextColor = System.Drawing.Color.White
-        Me.BtnLFA.ImagePosition = UIDC.UI_CustomButton.imgPosition.Left
-        Me.BtnLFA.Location = New System.Drawing.Point(20, 192)
-        Me.BtnLFA.MaximumSize = New System.Drawing.Size(500, 31)
+        Me.BtnLFA.Image = CType(resources.GetObject("BtnLFA.Image"), System.Drawing.Image)
+        Me.BtnLFA.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnLFA.Location = New System.Drawing.Point(3, 3)
         Me.BtnLFA.Name = "BtnLFA"
-        Me.BtnLFA.Size = New System.Drawing.Size(172, 31)
-        Me.BtnLFA.TabIndex = 20
-        Me.BtnLFA.Text = "UI_CustomButton1"
-        Me.BtnLFA.TextColor = System.Drawing.Color.White
-        Me.BtnLFA.Vertical_Alignment = System.Drawing.StringAlignment.Center
+        Me.BtnLFA.Size = New System.Drawing.Size(212, 34)
+        Me.BtnLFA.TabIndex = 30
+        Me.BtnLFA.Text = "Remisiones LFA"
+        Me.BtnLFA.UseVisualStyleBackColor = False
         '
         'PBarDatos
         '
@@ -144,7 +144,7 @@ Partial Class WinRemisiones
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PBarDatos.BackColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
         Me.PBarDatos.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(43, Byte), Integer))
-        Me.PBarDatos.Location = New System.Drawing.Point(17, 246)
+        Me.PBarDatos.Location = New System.Drawing.Point(19, 200)
         Me.PBarDatos.Margin = New System.Windows.Forms.Padding(0)
         Me.PBarDatos.Name = "PBarDatos"
         Me.PBarDatos.Size = New System.Drawing.Size(437, 10)
@@ -157,7 +157,7 @@ Partial Class WinRemisiones
         Me.LDatos.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LDatos.AutoSize = True
-        Me.LDatos.Location = New System.Drawing.Point(17, 228)
+        Me.LDatos.Location = New System.Drawing.Point(19, 182)
         Me.LDatos.Name = "LDatos"
         Me.LDatos.Size = New System.Drawing.Size(49, 13)
         Me.LDatos.TabIndex = 2
@@ -178,6 +178,18 @@ Partial Class WinRemisiones
         Me.PInstrucciones.Name = "PInstrucciones"
         Me.PInstrucciones.Size = New System.Drawing.Size(437, 166)
         Me.PInstrucciones.TabIndex = 0
+        '
+        'Label5
+        '
+        Me.Label5.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(27, 117)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(397, 19)
+        Me.Label5.TabIndex = 18
+        Me.Label5.Text = "Remisiones LFA     Remisiones GLU"
         '
         'Label4
         '
@@ -249,18 +261,6 @@ Partial Class WinRemisiones
         'TimeProcess
         '
         '
-        'Label5
-        '
-        Me.Label5.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(27, 117)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(397, 19)
-        Me.Label5.TabIndex = 18
-        Me.Label5.Text = "Remisiones LFA     Remisiones GLU"
-        '
         'WinRemisiones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -278,6 +278,7 @@ Partial Class WinRemisiones
         Me.PCargaArchivo.ResumeLayout(False)
         Me.PRemisiones.ResumeLayout(False)
         Me.PRemisiones.PerformLayout()
+        Me.TableLayoutPanel1.ResumeLayout(False)
         Me.PInstrucciones.ResumeLayout(False)
         Me.ResumeLayout(False)
 
@@ -295,8 +296,9 @@ Partial Class WinRemisiones
     Friend WithEvents OFDRemisiones As OpenFileDialog
     Friend WithEvents LDatos As Label
     Friend WithEvents PBarDatos As ProgressBar
-    Friend WithEvents BtnLFA As UIDC.UI_CustomButton
-    Friend WithEvents BtnGLU As UIDC.UI_CustomButton
     Friend WithEvents TimeProcess As Timer
     Friend WithEvents Label5 As Label
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents BtnLFA As Button
+    Friend WithEvents BtnGLU As Button
 End Class

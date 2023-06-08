@@ -4,7 +4,7 @@
 #End Region
 #Region "LOAD | FORM | CONFIGURACION DE LA CARGA INICIAL DEL SISTEMA"
     Private Sub FormPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        NewConfig.LoadWindow(WinRemisiones, PInfo, Me, WinHistorial, WinOpciones)
+        NewConfig.LoadWindow(WinRemisiones, BtnRemisiones, PInfo, Me, WinHistorial, WinOpciones, BtnHistorial, BtnOpciones, LNombrePanel, "Remisiones")
     End Sub
 #End Region
 
@@ -62,13 +62,13 @@
 
 #Region "BOTONES | PNAVEGACION | ACCIONES PARA MOSTRAR LAS VENTANAS DEL PNAVEGACION"
     Private Sub BtnRemisiones_Click(sender As Object, e As EventArgs) Handles BtnRemisiones.Click
-        NewConfig.LoadWindow(WinRemisiones, PInfo, Me, WinHistorial, WinOpciones)
+        NewConfig.LoadWindow(WinRemisiones, BtnRemisiones, PInfo, Me, WinHistorial, WinOpciones, BtnHistorial, BtnOpciones, LNombrePanel, "Remisiones")
     End Sub
     Private Sub BtnHistorial_Click(sender As Object, e As EventArgs) Handles BtnHistorial.Click
-        NewConfig.LoadWindow(WinHistorial, PInfo, Me, WinRemisiones, WinOpciones)
+        NewConfig.LoadWindow(WinHistorial, BtnHistorial, PInfo, Me, WinRemisiones, WinOpciones, BtnRemisiones, BtnOpciones, LNombrePanel, "Historial")
     End Sub
     Private Sub BtnOpciones_Click(sender As Object, e As EventArgs) Handles BtnOpciones.Click
-        NewConfig.LoadWindow(WinOpciones, PInfo, Me, WinRemisiones, WinHistorial)
+        NewConfig.LoadWindow(WinOpciones, BtnOpciones, PInfo, Me, WinRemisiones, WinHistorial, BtnRemisiones, BtnHistorial, LNombrePanel, "Opciones")
     End Sub
 #End Region
 End Class
