@@ -15,10 +15,10 @@ Public Class WinRemisiones
 
 #Region "BTN EMPRESAS DB | WINREMISIONES | BOTONES QUE INDICAN A QUE TABLA SUBIR LA INFO EN DB"
     Private Sub BtnGLU_Click(sender As Object, e As EventArgs) Handles BtnGLU.Click
-        NewRemision.BtnEmpresas(BtnGLU, BtnLFA, "GLU_REMS")
+        NewRemision.BtnEmpresas(BtnGLU, BtnLFA, "BRT_GLU_REMS", "GLU_REMS")
     End Sub
     Private Sub BtnLFA_Click(sender As Object, e As EventArgs) Handles BtnLFA.Click
-        NewRemision.BtnEmpresas(BtnLFA, BtnGLU, "LFA_REMS")
+        NewRemision.BtnEmpresas(BtnLFA, BtnGLU, "BRT_LFA_REMS", "LFA_REMS")
     End Sub
 #End Region
 

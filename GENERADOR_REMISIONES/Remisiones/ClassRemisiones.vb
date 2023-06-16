@@ -6,8 +6,8 @@ Public Class ClassRemisiones
 #Region "VARIABLES | WINREMISIONES | VARIABLES GLOABLES"
     'VARIABLES PARA EL ACCESO A LA BASE DE DATOS
     Dim RutaArchivo, NombreArchivo As String
-    Dim TablasAccess As String = String.Empty
-    Dim TablaRemisiones As String
+    Dim TablasAccessBRT, TablaRemisionesBRT As String
+    Dim TablaAccess, TablaRemisiones As String
 
     'VARIABLES PARA EL ACCESO A EL ARCHIVO EXCEL
     Dim CadenaConexionExcel As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + RutaArchivo + ";" & "Extended Properties='Excel 12.0 Xml;'"
@@ -29,14 +29,16 @@ Public Class ClassRemisiones
 
 
 #Region "BTN EMPRESAS | CLASSREMISIONES | BOTONES QUE INDICAN A QUE TABLA SUBIR LA INFO EN DB"
-    Public Function BtnEmpresas(BtnActive As Button, BtnDisable As Button, Empresa As String)
+    Public Function BtnEmpresas(BtnActive As Button, BtnDisable As Button, EmpresaBRT As String, Empresa As String)
         Try
             BtnActive.BackColor = Color.Red
             BtnDisable.BackColor = Color.FromArgb(138, 42, 43)
-            TablasAccess = Empresa & " (Serie, Folio, Codigo, Producto, Unidad, CostoTotal, FechaRegistro, FechaArchivo)"
+            TablasAccessBRT = EmpresaBRT & " (Serie, Folio, Codigo, Producto, Unidad, CostoTotal, FechaRegistro, FechaArchivo)"
+            TablaRemisionesBRT = EmpresaBRT
+            TablaAccess = Empresa & " (Serie, Folio, Codigo, Producto, Unidad, CostoTotal, FechaRegistro, FechaArchivo)"
             TablaRemisiones = Empresa
         Catch ex As Exception
-            MsgBox("Error al cambiar el icono.", MsgBoxStyle.Critical, "Error | Corporativo LUIN | #CR32BE39")
+            MsgBox("Error al cambiar el icono." & Chr(10) & ex.Message, MsgBoxStyle.Critical, "Error | Corporativo LUIN | #CR32BE39")
         End Try
     End Function
 #End Region
@@ -47,7 +49,7 @@ Public Class ClassRemisiones
         Try
             OFDRemisiones.Title = "Seleccione el archivo Excel a cargar."
             OFDRemisiones.Filter = "Archivos Excel(*.xls;*.xlsx)|*.xls;*xlsx"
-            If TablasAccess <> String.Empty Then
+            If TablasAccessBRT <> String.Empty Then
                 If OFDRemisiones.ShowDialog = System.Windows.Forms.DialogResult.OK Then
                     RutaArchivo = OFDRemisiones.FileName
                     NombreArchivo = OFDRemisiones.SafeFileName
@@ -88,6 +90,29 @@ Public Class ClassRemisiones
 
 #Region "BACKGROUND WORKER | WINREMISIONES | CONTROL QUE EJECUTA UN PROCESO ASINCRONO"
     Public Function BWRems(BWRemisiones As BackgroundWorker)
+        'TRY | ELIMINAR DATOS
+        Try
+            Dim CadenaConexionAccess As String = ConfigurationManager.ConnectionStrings("ConexionDB").ConnectionString
+            Using ConexionDB As New System.Data.OleDb.OleDbConnection(CadenaConexionAccess)
+                Dim ComandoElim_BRTLFA As OleDbCommand = ConexionDB.CreateCommand()
+                Dim ComandoElim_BRTGLU As OleDbCommand = ConexionDB.CreateCommand()
+
+                ConexionDB.Open()
+                Dim EliminarLFA = "DELETE * FROM BRT_LFA_REMS"
+                ComandoElim_BRTLFA.CommandText = EliminarLFA
+                Dim DatosLFA As Integer = ComandoElim_BRTLFA.ExecuteNonQuery()
+
+                Dim EliminarGLU = "DELETE * FROM BRT_GLU_REMS"
+                ComandoElim_BRTGLU.CommandText = EliminarGLU
+                Dim DatosGLU As Integer = ComandoElim_BRTGLU.ExecuteNonQuery()
+                ConexionDB.Close()
+            End Using
+        Catch ex As Exception
+            BWRemisiones.CancelAsync()
+            MsgBox("Error al eliminar los registros anteriores." & Chr(10) & ex.Message, MsgBoxStyle.Critical, "Error | Coporativo LUIN | #CR90BWR110")
+        End Try
+
+        'TRY | REGISTRAR DATOS
         Try
             Dim CadenaConexionAccess As String = ConfigurationManager.ConnectionStrings("ConexionDB").ConnectionString
             Dim HojaExcel As Object
@@ -130,16 +155,15 @@ Public Class ClassRemisiones
                                 FechaRegistro = Date.Today()
                                 FechaArchivo = HojaExcel.Cells(FilasLFA, 1).value
 
-                                InsertarContent = String.Format("INSERT INTO {0} VALUES('{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}');", TablasAccess, Serie, Folio, Codigo, Producto, Unidad, CostoTotal, FechaRegistro, FechaArchivo)
+                                InsertarContent = String.Format("INSERT INTO {0} VALUES('{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}');", TablasAccessBRT, Serie, Folio, Codigo, Producto, Unidad, CostoTotal, FechaRegistro, FechaArchivo)
                                 ProgresoProducto = "Registro: " & Serie & " " & Producto
                                 Comando.CommandText = InsertarContent
                                 Comando.ExecuteNonQuery()
                             End If
                         Next
-                        MsgBox("Remisiones registradas con exito.", MsgBoxStyle.Information, "Exito | Corporativo LUIN")
                     ElseIf RegistrosDB > 0 Then
                         If MsgBox("Ya existen remisiones con esa fecha: " & Mes & "/" & Ano & Chr(10) & "¿Desea volver a cargarlos?", vbYesNo Or vbQuestion, "Información | Corporativo LUIN") = vbYes Then
-                            Dim ConsultaDelete As String = "DELETE * FROM LFA_REMS " &
+                            Dim ConsultaDelete As String = "DELETE * FROM " & TablaRemisiones &
                                                     "WHERE FORMAT(FechaArchivo, 'M') = " & Mes &
                                                     "AND FORMAT(FechaArchivo, 'yyyy') = " & Ano
                             Dim ComandoConsultaDelete As OleDbCommand = New OleDbCommand(ConsultaDelete)
@@ -159,13 +183,12 @@ Public Class ClassRemisiones
                                     FechaRegistro = Date.Today()
                                     FechaArchivo = HojaExcel.Cells(FilasLFA, 1).value
 
-                                    InsertarContent = String.Format("INSERT INTO {0} VALUES('{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}');", TablasAccess, Serie, Folio, Codigo, Producto, Unidad, CostoTotal, FechaRegistro, FechaArchivo)
+                                    InsertarContent = String.Format("INSERT INTO {0} VALUES('{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}');", TablasAccessBRT, Serie, Folio, Codigo, Producto, Unidad, CostoTotal, FechaRegistro, FechaArchivo)
                                     ProgresoProducto = "Registro: " & Serie & " " & Producto
                                     Comando.CommandText = InsertarContent
                                     Comando.ExecuteNonQuery()
                                 End If
                             Next
-                            MsgBox("Remisiones registradas con exito.", MsgBoxStyle.Information, "Exito | Corporativo LUIN")
                         End If
                     End If
                     ConexionDB.Close()
@@ -173,12 +196,34 @@ Public Class ClassRemisiones
                 ExWB.Close(True)
                 ExApp.Quit()
             Catch ex As Exception
+                BWRemisiones.CancelAsync()
                 MsgBox("Error al leer el archivo." & Chr(10) & ex.Message, MsgBoxStyle.Critical, "Error | Coporativo LUIN | #CR90BWR176")
                 ExWB.Close(True)
                 ExApp.Quit()
             End Try
         Catch ex As Exception
+            BWRemisiones.CancelAsync()
             MsgBox("Error al iniciar el proceso." & Chr(10) & ex.Message, MsgBoxStyle.Critical, "Error | Coporativo LUIN | #CR90BWR181")
+        End Try
+
+
+        'TRY | PROCESAR DATOS
+        Try
+            Dim CadenaConexionAccess As String = ConfigurationManager.ConnectionStrings("ConexionDB").ConnectionString
+            Using ConexionDB As New System.Data.OleDb.OleDbConnection(CadenaConexionAccess)
+                Dim ComandoSumarRems As OleDbCommand = ConexionDB.CreateCommand()
+
+                ConexionDB.Open()
+                Dim EliminarLFA = "INSERT INTO " & TablaAccess &
+                                " SELECT Serie, Folio, Codigo, Producto, SUM(" & TablaRemisionesBRT & ".Unidad) AS Unidades, SUM(" & TablaRemisionesBRT & ".CostoTotal) AS Total, FechaRegistro, FechaArchivo" &
+                                " FROM " & TablaRemisionesBRT & " GROUP BY Serie, Folio, Codigo, Producto, FechaRegistro, FechaArchivo;"
+                ComandoSumarRems.CommandText = EliminarLFA
+                Dim DatosLFA As Integer = ComandoSumarRems.ExecuteNonQuery()
+                ConexionDB.Close()
+            End Using
+        Catch ex As Exception
+            BWRemisiones.CancelAsync()
+            MsgBox("Error al procesar la información." & Chr(10) & ex.Message, MsgBoxStyle.Critical, "Error | Coporativo LUIN | #CR90BWR224")
         End Try
     End Function
     Public Function BWRemsProgress(PBarDatos As ProgressBar, LDatos As Label, e As System.ComponentModel.ProgressChangedEventArgs)

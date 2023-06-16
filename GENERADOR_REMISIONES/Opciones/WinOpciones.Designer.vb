@@ -23,6 +23,12 @@ Partial Class WinOpciones
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(WinOpciones))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.POpciones = New System.Windows.Forms.Panel()
         Me.PBotonesOpciones = New System.Windows.Forms.TableLayoutPanel()
         Me.BtnLFA = New System.Windows.Forms.Button()
@@ -30,26 +36,30 @@ Partial Class WinOpciones
         Me.BtnGLU = New System.Windows.Forms.Button()
         Me.CmbMes = New System.Windows.Forms.ComboBox()
         Me.PInstrucciones = New System.Windows.Forms.Panel()
+        Me.DtgExDiferencias = New System.Windows.Forms.DataGridView()
+        Me.DTGSeriesDB = New System.Windows.Forms.DataGridView()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.LInstrucciones = New System.Windows.Forms.Label()
+        Me.LTablaRemisiones = New System.Windows.Forms.Label()
         Me.PCargaArchivo = New System.Windows.Forms.Panel()
-        Me.DtgExDiferencias = New System.Windows.Forms.DataGridView()
         Me.BtnGenerarExcel = New System.Windows.Forms.Button()
         Me.SaveFileExcel = New System.Windows.Forms.SaveFileDialog()
         Me.POpciones.SuspendLayout()
         Me.PBotonesOpciones.SuspendLayout()
         Me.PInstrucciones.SuspendLayout()
-        Me.PCargaArchivo.SuspendLayout()
         CType(Me.DtgExDiferencias, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DTGSeriesDB, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PCargaArchivo.SuspendLayout()
         Me.SuspendLayout()
         '
         'POpciones
         '
         Me.POpciones.Controls.Add(Me.PBotonesOpciones)
         Me.POpciones.Controls.Add(Me.PInstrucciones)
+        Me.POpciones.Controls.Add(Me.LTablaRemisiones)
         Me.POpciones.Dock = System.Windows.Forms.DockStyle.Fill
         Me.POpciones.Location = New System.Drawing.Point(0, 0)
         Me.POpciones.Name = "POpciones"
@@ -137,6 +147,8 @@ Partial Class WinOpciones
         '
         'PInstrucciones
         '
+        Me.PInstrucciones.Controls.Add(Me.DtgExDiferencias)
+        Me.PInstrucciones.Controls.Add(Me.DTGSeriesDB)
         Me.PInstrucciones.Controls.Add(Me.Label4)
         Me.PInstrucciones.Controls.Add(Me.Label3)
         Me.PInstrucciones.Controls.Add(Me.Label2)
@@ -146,6 +158,72 @@ Partial Class WinOpciones
         Me.PInstrucciones.Name = "PInstrucciones"
         Me.PInstrucciones.Size = New System.Drawing.Size(437, 166)
         Me.PInstrucciones.TabIndex = 1
+        '
+        'DtgExDiferencias
+        '
+        Me.DtgExDiferencias.AllowUserToAddRows = False
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DtgExDiferencias.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.DtgExDiferencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DtgExDiferencias.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DtgExDiferencias.Location = New System.Drawing.Point(199, 31)
+        Me.DtgExDiferencias.Name = "DtgExDiferencias"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DtgExDiferencias.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.DtgExDiferencias.Size = New System.Drawing.Size(247, 132)
+        Me.DtgExDiferencias.TabIndex = 28
+        '
+        'DTGSeriesDB
+        '
+        Me.DTGSeriesDB.AllowUserToAddRows = False
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DTGSeriesDB.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        Me.DTGSeriesDB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DTGSeriesDB.DefaultCellStyle = DataGridViewCellStyle5
+        Me.DTGSeriesDB.Location = New System.Drawing.Point(27, 31)
+        Me.DTGSeriesDB.Name = "DTGSeriesDB"
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(90, Byte), Integer))
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DTGSeriesDB.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
+        Me.DTGSeriesDB.Size = New System.Drawing.Size(143, 119)
+        Me.DTGSeriesDB.TabIndex = 29
         '
         'Label4
         '
@@ -193,9 +271,17 @@ Partial Class WinOpciones
         Me.LInstrucciones.Text = "Para generar un concentrado de remisiones, es necesario proporcionar una fecha do" &
     "nde se haya cargado una remisión."
         '
+        'LTablaRemisiones
+        '
+        Me.LTablaRemisiones.AutoSize = True
+        Me.LTablaRemisiones.Location = New System.Drawing.Point(204, 68)
+        Me.LTablaRemisiones.Name = "LTablaRemisiones"
+        Me.LTablaRemisiones.Size = New System.Drawing.Size(63, 13)
+        Me.LTablaRemisiones.TabIndex = 28
+        Me.LTablaRemisiones.Text = "LFA_REMS"
+        '
         'PCargaArchivo
         '
-        Me.PCargaArchivo.Controls.Add(Me.DtgExDiferencias)
         Me.PCargaArchivo.Controls.Add(Me.BtnGenerarExcel)
         Me.PCargaArchivo.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.PCargaArchivo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -204,16 +290,6 @@ Partial Class WinOpciones
         Me.PCargaArchivo.Name = "PCargaArchivo"
         Me.PCargaArchivo.Size = New System.Drawing.Size(477, 38)
         Me.PCargaArchivo.TabIndex = 4
-        '
-        'DtgExDiferencias
-        '
-        Me.DtgExDiferencias.AllowUserToAddRows = False
-        Me.DtgExDiferencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DtgExDiferencias.Location = New System.Drawing.Point(448, 10)
-        Me.DtgExDiferencias.Name = "DtgExDiferencias"
-        Me.DtgExDiferencias.Size = New System.Drawing.Size(17, 16)
-        Me.DtgExDiferencias.TabIndex = 28
-        Me.DtgExDiferencias.Visible = False
         '
         'BtnGenerarExcel
         '
@@ -234,7 +310,7 @@ Partial Class WinOpciones
         '
         'SaveFileExcel
         '
-        Me.SaveFileExcel.Filter = "Archivos Excel(*.xlsx; *.xls)|*xlsx;*slx"
+        Me.SaveFileExcel.Filter = "Archivos Excel(*.xlsx)|*xlsx"
         Me.SaveFileExcel.Title = "Seleccione la ruta del archivo."
         '
         'WinOpciones
@@ -251,10 +327,12 @@ Partial Class WinOpciones
         Me.Name = "WinOpciones"
         Me.Text = "WinOpciones"
         Me.POpciones.ResumeLayout(False)
+        Me.POpciones.PerformLayout()
         Me.PBotonesOpciones.ResumeLayout(False)
         Me.PInstrucciones.ResumeLayout(False)
-        Me.PCargaArchivo.ResumeLayout(False)
         CType(Me.DtgExDiferencias, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DTGSeriesDB, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PCargaArchivo.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -275,4 +353,6 @@ Partial Class WinOpciones
     Friend WithEvents CmbMes As ComboBox
     Friend WithEvents SaveFileExcel As SaveFileDialog
     Friend WithEvents DtgExDiferencias As DataGridView
+    Friend WithEvents DTGSeriesDB As DataGridView
+    Friend WithEvents LTablaRemisiones As Label
 End Class

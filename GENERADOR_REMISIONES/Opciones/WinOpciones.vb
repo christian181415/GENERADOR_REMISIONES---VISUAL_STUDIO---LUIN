@@ -13,18 +13,18 @@ Public Class WinOpciones
 
 
     Private Sub BtnLFA_Click(sender As Object, e As EventArgs) Handles BtnLFA.Click
-        NewOpcion.BtnEmpresas(BtnLFA, BtnGLU, "LFA_REMS")
+        NewOpcion.BtnEmpresas(BtnLFA, BtnGLU, "LFA_REMS", LTablaRemisiones)
     End Sub
     Private Sub BtnGLU_Click(sender As Object, e As EventArgs) Handles BtnGLU.Click
-        NewOpcion.BtnEmpresas(BtnGLU, BtnLFA, "GLU_REMS")
+        NewOpcion.BtnEmpresas(BtnGLU, BtnLFA, "GLU_REMS", LTablaRemisiones)
     End Sub
 
 
     Private Sub CmbMes_MouseClick(sender As Object, e As MouseEventArgs) Handles CmbMes.MouseClick
-        NewOpcion.CargaMeses(CmbMes, CmbYear)
+        NewOpcion.CargaMeses(CmbMes, CmbYear, LTablaRemisiones)
     End Sub
 
     Private Sub BtnGenerarExcel_Click(sender As Object, e As EventArgs) Handles BtnGenerarExcel.Click
-        NewExcel.GenerarExcel(DtgExDiferencias, SaveFileExcel)
+        NewExcel.GenerarExcel(DTGSeriesDB, DtgExDiferencias, SaveFileExcel, LTablaRemisiones, CmbYear, CmbMes)
     End Sub
 End Class
