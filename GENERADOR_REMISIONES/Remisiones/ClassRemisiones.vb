@@ -6,12 +6,12 @@ Public Class ClassRemisiones
 #Region "VARIABLES | WINREMISIONES | VARIABLES GLOABLES"
     'VARIABLES PARA EL ACCESO A LA BASE DE DATOS
     Dim RutaArchivo, NombreArchivo As String
-    Dim TablasAccessBRT, TablaRemisionesBRT As String
-    Dim TablaAccess, TablaRemisiones As String
+    'Dim TablasAccessBRT, TablaRemisionesBRT As String
+    Dim TablasAccess, TablaRemisiones As String
 
     'VARIABLES PARA EL ACCESO A EL ARCHIVO EXCEL
     Dim CadenaConexionExcel As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + RutaArchivo + ";" & "Extended Properties='Excel 12.0 Xml;'"
-    Dim RecorreFecha, InsertarContent, ProgresoProducto, Serie, Folio, Codigo, Producto, Unidad, CostoTotal, FechaRegistro, FechaArchivo, Sucursal_ID As String
+    Dim RecorreFecha, InsertarContent, ProgresoProducto, Serie, Codigo, Producto, Unidad, CostoTotal, FechaRegistro, FechaArchivo, Sucursal_ID As String
     Dim TotalFilasLFA, FilasLFA As Long
 #End Region
 
@@ -33,10 +33,9 @@ Public Class ClassRemisiones
         Try
             BtnActive.BackColor = Color.Red
             BtnDisable.BackColor = Color.FromArgb(138, 42, 43)
-            TablasAccessBRT = EmpresaBRT & " (Serie, Folio, Codigo, Producto, Unidad, CostoTotal, FechaRegistro, FechaArchivo)"
-            TablaRemisionesBRT = EmpresaBRT
-            TablaAccess = Empresa & " (Serie, Folio, Codigo, Producto, Unidad, CostoTotal, FechaRegistro, FechaArchivo)"
+            TablasAccess = Empresa & " (Serie, Codigo, Producto, Unidad, CostoTotal, FechaRegistro, FechaArchivo)"
             TablaRemisiones = Empresa
+            'TablaRemisiones = Empresa
         Catch ex As Exception
             MsgBox("Error al cambiar el icono." & Chr(10) & ex.Message, MsgBoxStyle.Critical, "Error | Corporativo LUIN | #CR32BE39")
         End Try
@@ -49,7 +48,7 @@ Public Class ClassRemisiones
         Try
             OFDRemisiones.Title = "Seleccione el archivo Excel a cargar."
             OFDRemisiones.Filter = "Archivos Excel(*.xls;*.xlsx)|*.xls;*xlsx"
-            If TablasAccessBRT <> String.Empty Then
+            If TablasAccess <> String.Empty Then
                 If OFDRemisiones.ShowDialog = System.Windows.Forms.DialogResult.OK Then
                     RutaArchivo = OFDRemisiones.FileName
                     NombreArchivo = OFDRemisiones.SafeFileName
@@ -90,27 +89,27 @@ Public Class ClassRemisiones
 
 #Region "BACKGROUND WORKER | WINREMISIONES | CONTROL QUE EJECUTA UN PROCESO ASINCRONO"
     Public Function BWRems(BWRemisiones As BackgroundWorker)
-        'TRY | ELIMINAR DATOS
-        Try
-            Dim CadenaConexionAccess As String = ConfigurationManager.ConnectionStrings("ConexionDB").ConnectionString
-            Using ConexionDB As New System.Data.OleDb.OleDbConnection(CadenaConexionAccess)
-                Dim ComandoElim_BRTLFA As OleDbCommand = ConexionDB.CreateCommand()
-                Dim ComandoElim_BRTGLU As OleDbCommand = ConexionDB.CreateCommand()
+        ''TRY | ELIMINAR DATOS
+        'Try
+        '    Dim CadenaConexionAccess As String = ConfigurationManager.ConnectionStrings("ConexionDB").ConnectionString
+        '    Using ConexionDB As New System.Data.OleDb.OleDbConnection(CadenaConexionAccess)
+        '        Dim ComandoElim_BRTLFA As OleDbCommand = ConexionDB.CreateCommand()
+        '        Dim ComandoElim_BRTGLU As OleDbCommand = ConexionDB.CreateCommand()
 
-                ConexionDB.Open()
-                Dim EliminarLFA = "DELETE * FROM BRT_LFA_REMS"
-                ComandoElim_BRTLFA.CommandText = EliminarLFA
-                Dim DatosLFA As Integer = ComandoElim_BRTLFA.ExecuteNonQuery()
+        '        ConexionDB.Open()
+        '        Dim EliminarLFA = "DELETE * FROM BRT_LFA_REMS"
+        '        ComandoElim_BRTLFA.CommandText = EliminarLFA
+        '        Dim DatosLFA As Integer = ComandoElim_BRTLFA.ExecuteNonQuery()
 
-                Dim EliminarGLU = "DELETE * FROM BRT_GLU_REMS"
-                ComandoElim_BRTGLU.CommandText = EliminarGLU
-                Dim DatosGLU As Integer = ComandoElim_BRTGLU.ExecuteNonQuery()
-                ConexionDB.Close()
-            End Using
-        Catch ex As Exception
-            BWRemisiones.CancelAsync()
-            MsgBox("Error al eliminar los registros anteriores." & Chr(10) & ex.Message, MsgBoxStyle.Critical, "Error | Coporativo LUIN | #CR90BWR110")
-        End Try
+        '        Dim EliminarGLU = "DELETE * FROM BRT_GLU_REMS"
+        '        ComandoElim_BRTGLU.CommandText = EliminarGLU
+        '        Dim DatosGLU As Integer = ComandoElim_BRTGLU.ExecuteNonQuery()
+        '        ConexionDB.Close()
+        '    End Using
+        'Catch ex As Exception
+        '    BWRemisiones.CancelAsync()
+        '    MsgBox("Error al eliminar los registros anteriores." & Chr(10) & ex.Message, MsgBoxStyle.Critical, "Error | Coporativo LUIN | #CR90BWR110")
+        'End Try
 
         'TRY | REGISTRAR DATOS
         Try
@@ -147,7 +146,6 @@ Public Class ClassRemisiones
                             If IsDate(RecorreFecha) = True Then
                                 BWRemisiones.ReportProgress(FilasLFA)
                                 Serie = HojaExcel.Cells(FilasLFA, 3).value
-                                Folio = HojaExcel.Cells(FilasLFA, 4).value
                                 Codigo = HojaExcel.Cells(FilasLFA, 6).value
                                 Producto = HojaExcel.Cells(FilasLFA, 7).value.ToString.Replace("'", "")
                                 Unidad = HojaExcel.Cells(FilasLFA, 8).value.ToString.Replace("-", "")
@@ -155,7 +153,7 @@ Public Class ClassRemisiones
                                 FechaRegistro = Date.Today()
                                 FechaArchivo = HojaExcel.Cells(FilasLFA, 1).value
 
-                                InsertarContent = String.Format("INSERT INTO {0} VALUES('{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}');", TablasAccessBRT, Serie, Folio, Codigo, Producto, Unidad, CostoTotal, FechaRegistro, FechaArchivo)
+                                InsertarContent = String.Format("INSERT INTO {0} VALUES('{1}','{2}','{3}','{4}','{5}','{6}','{7}');", TablasAccess, Serie, Codigo, Producto, Unidad, CostoTotal, FechaRegistro, FechaArchivo)
                                 ProgresoProducto = "Registro: " & Serie & " " & Producto
                                 Comando.CommandText = InsertarContent
                                 Comando.ExecuteNonQuery()
@@ -164,8 +162,8 @@ Public Class ClassRemisiones
                     ElseIf RegistrosDB > 0 Then
                         If MsgBox("Ya existen remisiones con esa fecha: " & Mes & "/" & Ano & Chr(10) & "¿Desea volver a cargarlos?", vbYesNo Or vbQuestion, "Información | Corporativo LUIN") = vbYes Then
                             Dim ConsultaDelete As String = "DELETE * FROM " & TablaRemisiones &
-                                                    "WHERE FORMAT(FechaArchivo, 'M') = " & Mes &
-                                                    "AND FORMAT(FechaArchivo, 'yyyy') = " & Ano
+                                                    " WHERE FORMAT(FechaArchivo, 'M') = " & Mes &
+                                                    " AND FORMAT(FechaArchivo, 'yyyy') = " & Ano
                             Dim ComandoConsultaDelete As OleDbCommand = New OleDbCommand(ConsultaDelete)
                             ComandoConsultaDelete.Connection = ConexionDB
                             Dim ReaderDelete As OleDbDataReader = ComandoConsultaDelete.ExecuteReader
@@ -175,7 +173,6 @@ Public Class ClassRemisiones
                                 If IsDate(RecorreFecha) = True Then
                                     BWRemisiones.ReportProgress(FilasLFA)
                                     Serie = HojaExcel.Cells(FilasLFA, 3).value
-                                    Folio = HojaExcel.Cells(FilasLFA, 4).value
                                     Codigo = HojaExcel.Cells(FilasLFA, 6).value
                                     Producto = HojaExcel.Cells(FilasLFA, 7).value.ToString.Replace("'", "")
                                     Unidad = HojaExcel.Cells(FilasLFA, 8).value.ToString.Replace("-", "")
@@ -183,7 +180,7 @@ Public Class ClassRemisiones
                                     FechaRegistro = Date.Today()
                                     FechaArchivo = HojaExcel.Cells(FilasLFA, 1).value
 
-                                    InsertarContent = String.Format("INSERT INTO {0} VALUES('{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}');", TablasAccessBRT, Serie, Folio, Codigo, Producto, Unidad, CostoTotal, FechaRegistro, FechaArchivo)
+                                    InsertarContent = String.Format("INSERT INTO {0} VALUES('{1}','{2}','{3}','{4}','{5}','{6}','{7}');", TablasAccess, Serie, Codigo, Producto, Unidad, CostoTotal, FechaRegistro, FechaArchivo)
                                     ProgresoProducto = "Registro: " & Serie & " " & Producto
                                     Comando.CommandText = InsertarContent
                                     Comando.ExecuteNonQuery()
@@ -207,24 +204,25 @@ Public Class ClassRemisiones
         End Try
 
 
-        'TRY | PROCESAR DATOS
-        Try
-            Dim CadenaConexionAccess As String = ConfigurationManager.ConnectionStrings("ConexionDB").ConnectionString
-            Using ConexionDB As New System.Data.OleDb.OleDbConnection(CadenaConexionAccess)
-                Dim ComandoSumarRems As OleDbCommand = ConexionDB.CreateCommand()
+        ''TRY | PROCESAR DATOS
+        'Try
+        '    Dim CadenaConexionAccess As String = ConfigurationManager.ConnectionStrings("ConexionDB").ConnectionString
+        '    Using ConexionDB As New System.Data.OleDb.OleDbConnection(CadenaConexionAccess)
+        '        Dim ComandoSumarRems As OleDbCommand = ConexionDB.CreateCommand()
 
-                ConexionDB.Open()
-                Dim EliminarLFA = "INSERT INTO " & TablaAccess &
-                                " SELECT Serie, Folio, Codigo, Producto, SUM(" & TablaRemisionesBRT & ".Unidad) AS Unidades, SUM(" & TablaRemisionesBRT & ".CostoTotal) AS Total, FechaRegistro, FechaArchivo" &
-                                " FROM " & TablaRemisionesBRT & " GROUP BY Serie, Folio, Codigo, Producto, FechaRegistro, FechaArchivo;"
-                ComandoSumarRems.CommandText = EliminarLFA
-                Dim DatosLFA As Integer = ComandoSumarRems.ExecuteNonQuery()
-                ConexionDB.Close()
-            End Using
-        Catch ex As Exception
-            BWRemisiones.CancelAsync()
-            MsgBox("Error al procesar la información." & Chr(10) & ex.Message, MsgBoxStyle.Critical, "Error | Coporativo LUIN | #CR90BWR224")
-        End Try
+        '        ConexionDB.Open()
+        '        FechaRegistro = Date.Today()
+        '        Dim EliminarLFA = "INSERT INTO " & TablaRemisiones & " (Serie, Codigo, Producto, Unidad, CostoTotal, FechaRegistro, FechaArchivo)" &
+        '                        " SELECT Serie, Codigo, Producto, SUM(Unidad), SUM(CostoTotal), " & FechaRegistro & ", FechaArchivo" &
+        '                        " FROM " & TablaRemisionesBRT & " GROUP BY Serie, Codigo, Producto, FechaRegistro, FechaArchivo;"
+        '        ComandoSumarRems.CommandText = EliminarLFA
+        '        Dim DatosLFA As Integer = ComandoSumarRems.ExecuteNonQuery()
+        '        ConexionDB.Close()
+        '    End Using
+        'Catch ex As Exception
+        '    BWRemisiones.CancelAsync()
+        '    MsgBox("Error al procesar la información." & Chr(10) & ex.Message, MsgBoxStyle.Critical, "Error | Coporativo LUIN | #CR90BWR224")
+        'End Try
     End Function
     Public Function BWRemsProgress(PBarDatos As ProgressBar, LDatos As Label, e As System.ComponentModel.ProgressChangedEventArgs)
         Try

@@ -1,6 +1,7 @@
 ﻿Imports System.Configuration
 Imports System.Data.OleDb
 Imports System.Globalization
+Imports System.IO
 
 Public Class ClassExportarExcel
     Dim exApp As New Microsoft.Office.Interop.Excel.Application
@@ -131,15 +132,16 @@ Public Class ClassExportarExcel
                         End If
                     Next
                 End If
+                MsgBox("Su archivo: " & Path.GetFileNameWithoutExtension(RutaExcel) & Chr(10) & "Fue generado correctamente.")
             Catch ex As Exception
                 MsgBox("Error al crear el archivo Excel." & Chr(10) & ex.Message, MsgBoxStyle.Critical, "Error | Corporativo LUIN | #CEE9GE50")
             End Try
             ConexionDB.Close()
             exLibro.SaveAs(RutaExcel)
         End If
+        exApp.Quit()
         exHoja = Nothing
         exLibro = Nothing
-        exApp = Nothing
     End Function
 
 
@@ -147,17 +149,18 @@ Public Class ClassExportarExcel
 
     Public Function ProcesarExcel(DTGSeriesDB As DataGridView, DtgExportarRemisiones As DataGridView, LTablaRemisiones As Label, CmbYear As ComboBox, CmbMes As ComboBox, NomRemisiones As String)
         Try
-            Dim Consulta = "SELECT Codigo, Producto, Unidad AS Unidades, CostoTotal FROM " & LTablaRemisiones.Text &
+            Dim Consulta = "SELECT Codigo, Producto, SUM(Unidad) AS Unidades, SUM(CostoTotal) AS Costo_Total FROM " & LTablaRemisiones.Text &
                         " WHERE Serie = '" & DTGSeriesDB.Rows(Fila).Cells(0).Value & "'" &
                         " AND FORMAT(FechaArchivo, 'yyyy') = " & CmbYear.Text &
                         " AND FORMAT(FechaArchivo, 'M') = " & DateTime.ParseExact(CmbMes.Text, "MMMM", CultureInfo.CurrentCulture).Month &
-                        " ORDER BY Producto"
+                        " GROUP BY Codigo, Producto"
             Dim DataAdapter As New OleDbDataAdapter(Consulta, ConexionDB)
             Dim DT As New DataTable
             DataAdapter.Fill(DT)
             DtgExportarRemisiones.DataSource = Nothing
             DtgExportarRemisiones.Columns.Clear()
             DtgExportarRemisiones.DataSource = DT
+            DtgExportarRemisiones.Columns("Costo_Total").DefaultCellStyle.Format = "C2"
 
             exHoja = exLibro.Worksheets.Add()
             exHoja.Name = NomRemisiones
@@ -165,28 +168,33 @@ Public Class ClassExportarExcel
             Dim NCol As Integer = DtgExportarRemisiones.ColumnCount
             Dim NRow As Integer = DtgExportarRemisiones.RowCount
 
-            With exHoja.Range("A1:G2")
-                .Merge()
-                .Value = "REMISIONES DE " & NomRemisiones
-                .Font.Bold = True
-                .Font.Size = 20
-                .HorizontalAlignment = 3
-            End With
-
-            With exHoja.Range("A4:F4")
-                .Font.Bold = True
-                .AutoFilter(1,, VisibleDropDown:=True)
-            End With
 
             For i As Integer = 1 To NCol
                 exHoja.Cells.Item(4, i) = DtgExportarRemisiones.Columns(i - 1).Name.ToString()
             Next
-
             For FilaWin As Integer = 0 To NRow - 1
                 For Col As Integer = 0 To NCol - 1
                     exHoja.Cells.Item(FilaWin + 5, Col + 1) = DtgExportarRemisiones.Rows(FilaWin).Cells(Col).Value()
+                    'exHoja.Columns.NumberFormat =
                 Next
             Next
+
+
+            With exHoja.Range("A1:D2")
+                .Merge()
+                .Value = "REMISIONES " & NomRemisiones & " - " & UCase(CmbMes.Text & " " & CmbYear.Text)
+                .Font.Bold = True
+                .Font.Size = 20
+                .HorizontalAlignment = 3
+            End With
+            With exHoja.Range("A4:D4")
+                .Font.Bold = True
+                .AutoFilter(1,, VisibleDropDown:=True)
+                .Interior.Color = Color.LightGray
+                .HorizontalAlignment = 3
+            End With
+            exHoja.Range("B1").ColumnWidth = 50
+            exHoja.Columns(4).NumberFormat = "$###,##0.00"
         Catch ex As Exception
             MsgBox("Error al crear el archivo Excel." & Chr(10) & ex.Message, MsgBoxStyle.Critical, "Error | Corporativo LUIN | #CEE9GE82")
         End Try
