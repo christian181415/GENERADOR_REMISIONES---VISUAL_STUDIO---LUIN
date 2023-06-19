@@ -14,6 +14,13 @@ Public Class ClassExportarExcel
 
 
     Public Function GenerarExcel(DTGSeriesDB As DataGridView, DtgExportarRemisiones As DataGridView, SaveFileExcel As SaveFileDialog, LTablaRemisiones As Label, CmbYear As ComboBox, CmbMes As ComboBox)
+        If LTablaRemisiones.Text = "LFA_REMS" Then
+            SaveFileExcel.FileName = Right(CmbYear.Text, 2) & "_LFA_REMS_" & UCase(CmbMes.Text)
+        ElseIf LTablaRemisiones.Text = "GLU_REMS" Then
+            SaveFileExcel.FileName = Right(CmbYear.Text, 2) & "_GLU_REMS_" & UCase(CmbMes.Text)
+        End If
+
+
         If SaveFileExcel.ShowDialog = System.Windows.Forms.DialogResult.OK And LTablaRemisiones.Text <> String.Empty And CmbYear.Text <> String.Empty And CmbMes.Text <> String.Empty Then
             SaveFileExcel.Filter = "Archivos Excel(*.xlsx)|*xlsx"
             Dim RutaExcel = SaveFileExcel.FileName
@@ -175,7 +182,6 @@ Public Class ClassExportarExcel
             For FilaWin As Integer = 0 To NRow - 1
                 For Col As Integer = 0 To NCol - 1
                     exHoja.Cells.Item(FilaWin + 5, Col + 1) = DtgExportarRemisiones.Rows(FilaWin).Cells(Col).Value()
-                    'exHoja.Columns.NumberFormat =
                 Next
             Next
 

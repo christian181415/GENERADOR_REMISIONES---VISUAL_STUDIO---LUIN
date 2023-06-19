@@ -70,13 +70,15 @@ Public Class ClassHistorial
         Dim ConexionDB As OleDbConnection = New OleDbConnection(CadenaConexionAccess)
         Try
             ConexionDB.Open()
-            Dim Consulta = "SELECT Serie, Folio, Codigo, Producto, Unidad, CostoTotal FROM " & TablaRemisiones &
+            Dim Consulta = "SELECT Serie, Codigo, Producto, SUM(Unidad) AS Unidades, SUM(CostoTotal) AS Costo_Total FROM " & TablaRemisiones &
                         " WHERE FORMAT(FechaArchivo, 'yyyy') = " & CmbYear.Text &
-                        " AND FORMAT(FechaArchivo, 'M') = " & DateTime.ParseExact(CmbMes.Text, "MMMM", CultureInfo.CurrentCulture).Month
+                        " AND FORMAT(FechaArchivo, 'M') = " & DateTime.ParseExact(CmbMes.Text, "MMMM", CultureInfo.CurrentCulture).Month &
+                        " GROUP BY Serie, Codigo, Producto"
             Dim DataAdapter As New OleDbDataAdapter(Consulta, ConexionDB)
             Dim DT As New DataTable
             DataAdapter.Fill(DT)
             DtgHistorial.DataSource = DT
+            DtgHistorial.Columns("Costo_Total").DefaultCellStyle.Format = "C2"
             ConexionDB.Close()
         Catch ex As Exception
             MsgBox("Error" & Chr(10) & ex.Message, MsgBoxStyle.Critical, "Error | Corporativo LUIN | BtnMostrarRemisiones")
